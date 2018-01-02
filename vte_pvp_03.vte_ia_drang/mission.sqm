@@ -1,0 +1,1907 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=1542;
+	};
+	class MarkerIDProvider
+	{
+		nextID=39;
+	};
+	class Camera
+	{
+		pos[]={10630.203,61.10099,8148.0864};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,0};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Ui_F",
+	"vte_chara_cfg"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=2;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="vte_chara_cfg";
+			name="vte_chara_cfg";
+		};
+	};
+};
+randomSeed=13115375;
+class ScenarioData
+{
+	author="PMC Since 1984";
+};
+class Intro
+{
+	class Intel
+	{
+		startWeather=0.12;
+		startWind=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2006;
+		month=11;
+		day=17;
+		hour=16;
+		minute=45;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="VTE VTE PvP 3 Battle for LZ Columbus v1.0.2";
+		startWeather=1;
+		startFog=1;
+		startWind=0.1;
+		forecastWeather=1;
+		forecastFog=1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2006;
+		month=11;
+		day=17;
+		hour=9;
+		minute=35;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+	class Entities
+	{
+		items=15;
+		class Item0
+		{
+			dataType="Marker";
+			position[]={10384.864,27.404999,8132.3896};
+			name="target1";
+			text="Target";
+			type="mil_dot";
+			id=1443;
+			atlOffset=-3.045002;
+		};
+		class Item1
+		{
+			dataType="Trigger";
+			position[]={10403.924,27.316713,8095.3975};
+			class Attributes
+			{
+				text="opfor lose";
+				onActivation="PMC_objective1 setTaskState ""succeeded""; PMC_objective_opfor1 setTaskState ""failed""; PMC_mcomplete = true; publicVariable ""PMC_mcomplete"";";
+				sizeA=500;
+				sizeB=500;
+				timeout[]={3,0,5};
+				interuptable=1;
+				activationType="NOT PRESENT";
+				activationBy="EAST";
+				effectMusic="VTE_crosstown";
+			};
+			id=1444;
+			type="EmptyDetector";
+			atlOffset=-3.0351925;
+		};
+		class Item2
+		{
+			dataType="Trigger";
+			position[]={10400.602,27.391472,8098.8848};
+			class Attributes
+			{
+				text="blufor lose";
+				onActivation="PMC_objective1 setTaskState ""FAILED""; PMC_objective_opfor1 setTaskState ""succeeded""; PMC_mcomplete = true; publicVariable ""PMC_mcomplete"";";
+				sizeA=500;
+				sizeB=500;
+				timeout[]={3,0,5};
+				interuptable=1;
+				activationType="NOT PRESENT";
+				activationBy="WEST";
+				effectMusic="VTE_caldreaming";
+			};
+			id=1445;
+			type="EmptyDetector";
+			atlOffset=-3.043499;
+		};
+		class Item3
+		{
+			dataType="Trigger";
+			position[]={10407.472,27.236891,8091.5991};
+			class Attributes
+			{
+				text="END";
+				condition="PMC_mcomplete";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={30,0,120};
+				interuptable=1;
+				type="END1";
+			};
+			id=1446;
+			type="EmptyDetector";
+			atlOffset=-3.0263233;
+		};
+		class Item4
+		{
+			dataType="Trigger";
+			position[]={10519.876,29.092068,8032.0078};
+			class Attributes
+			{
+				text="0s, put in some rainnn!";
+				condition="true";
+				onActivation="0 setOvercast 1; 0 setRain 1; 0 setFog 1;";
+				sizeA=0;
+				sizeB=0;
+				interuptable=1;
+			};
+			id=1447;
+			type="EmptyDetector";
+			atlOffset=-3.2324486;
+		};
+		class Item5
+		{
+			dataType="Trigger";
+			position[]={10526.31,29.153919,8026.8159};
+			class Attributes
+			{
+				text="5s, set overcast";
+				condition="true";
+				onActivation="600 setOvercast 0.5;";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={5,5,5};
+				interuptable=1;
+			};
+			id=1448;
+			type="EmptyDetector";
+			atlOffset=-3.2393227;
+		};
+		class Item6
+		{
+			dataType="Trigger";
+			position[]={10532.453,29.23654,8022.439};
+			class Attributes
+			{
+				text="10s, set fog";
+				condition="true";
+				onActivation="900 setFog 0.5;";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={10,10,10};
+				interuptable=1;
+			};
+			id=1449;
+			type="EmptyDetector";
+			atlOffset=-3.2485065;
+		};
+		class Item7
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10307.31,29.823023,8161.415};
+						angles[]={0.028991109,0,0.0069996584};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						name="nvainf1";
+						isPlayable=1;
+					};
+					id=1451;
+					type="VTE_NVAofficer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10312.31,30.001574,8156.4648};
+						angles[]={0.028991109,0,0.0069996584};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1452;
+					type="VTE_NVAsoldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10302.31,29.931576,8156.4648};
+						angles[]={0.028991109,0,0.0069996584};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1453;
+					type="VTE_NVAsoldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10317.31,30.181585,8151.4648};
+						angles[]={0.028991109,0,0.0069996584};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1454;
+					type="VTE_NVAmg";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10297.31,29.973619,8151.4648};
+						angles[]={0.038980953,0,0.026993545};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1455;
+					type="VTE_NVArpg";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10322.31,30.257603,8146.4648};
+						angles[]={0,0,0.0069911378};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1456;
+					type="VTE_NVAsoldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10292.31,29.915308,8146.4648};
+						angles[]={0.0060001095,0,0.026991336};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1457;
+					type="VTE_NVAsoldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10327.31,30.292604,8141.4648};
+						angles[]={0,0,0.0069911378};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1458;
+					type="VTE_NVAmg";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10287.31,29.810301,8141.4648};
+						angles[]={0.0060001095,0,0.026991336};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1459;
+					type="VTE_NVAmark";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1450;
+		};
+		class Item8
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10378.313,31.24416,8229.6631};
+						angles[]={6.2202692,0,0.060924344};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						name="nvainf2";
+						isPlayable=1;
+					};
+					id=1461;
+					type="VTE_NVAofficer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10383.313,31.237286,8224.7129};
+						angles[]={6.2202692,0,0.060924344};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1462;
+					type="VTE_NVAsoldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10373.313,30.698137,8224.7129};
+						angles[]={6.2551923,0,0.025994543};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1463;
+					type="VTE_NVAsoldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10388.313,31.227333,8219.7129};
+						angles[]={6.2202692,0,0.060924344};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1464;
+					type="VTE_NVAmg";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10368.313,30.428164,8219.7129};
+						angles[]={6.2551923,0,0.025994543};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1465;
+					type="VTE_NVArpg";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10393.313,31.217331,8214.7129};
+						angles[]={6.2202692,0,0.060924344};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1466;
+					type="VTE_NVAsoldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10363.313,30.158146,8214.7129};
+						angles[]={6.2551923,0,0.025994543};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1467;
+					type="VTE_NVAsoldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10398.313,31.207287,8209.7129};
+						angles[]={6.2202692,0,0.060924344};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1468;
+					type="VTE_NVAmg";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10358.313,29.88813,8209.7129};
+						angles[]={6.2551923,0,0.025994543};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1469;
+					type="VTE_NVAmark";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1460;
+		};
+		class Item9
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10307.397,30.210848,8053.0552};
+						angles[]={6.278194,0,0.0060001095};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						name="nvainf3";
+						isPlayable=1;
+					};
+					id=1471;
+					type="VTE_NVAofficer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10312.397,30.223875,8048.105};
+						angles[]={6.2822089,0,0.0060001095};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1472;
+					type="VTE_NVAsoldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10302.397,30.163876,8048.105};
+						angles[]={6.2822089,0,0.0060001095};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1473;
+					type="VTE_NVAsoldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10317.397,30.248877,8043.105};
+						angles[]={6.2822089,0,0.0060001095};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1474;
+					type="VTE_NVAmg";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10297.397,30.112379,8043.105};
+						angles[]={6.2801952,0,0.0069996584};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1475;
+					type="VTE_NVArpg";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10322.397,30.273874,8038.105};
+						angles[]={6.2822089,0,0.0060001095};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1476;
+					type="VTE_NVAsoldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10292.397,30.062384,8038.105};
+						angles[]={6.2801952,0,0.0069996584};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1477;
+					type="VTE_NVAsoldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10327.397,30.298876,8033.105};
+						angles[]={6.2822089,0,0.0060001095};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1478;
+					type="VTE_NVAmg";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10287.397,30.012383,8033.105};
+						angles[]={6.2801952,0,0.0069996584};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1479;
+					type="VTE_NVAmark";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1470;
+		};
+		class Item10
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10389.908,30.088991,8006.8652};
+						angles[]={6.2822089,0,6.2751846};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						name="nvainf4";
+						isPlayable=1;
+					};
+					id=1481;
+					type="VTE_NVAofficer";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10394.908,30.044039,8001.915};
+						angles[]={6.2822089,0,6.2751846};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1482;
+					type="VTE_NVAsoldier";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10384.908,30.124037,8001.915};
+						angles[]={6.2822089,0,6.2751846};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1483;
+					type="VTE_NVAsoldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10399.908,30.158924,7996.915};
+						angles[]={0.049958061,0,6.2751846};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1484;
+					type="VTE_NVAmg";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10379.908,30.31892,7996.915};
+						angles[]={0.049958061,0,6.2751846};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1485;
+					type="VTE_NVArpg";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10404.908,30.231512,7991.915};
+						angles[]={0.049959254,0,6.247201};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1486;
+					type="VTE_NVAsoldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10374.908,30.60894,7991.915};
+						angles[]={0.049958061,0,6.2751846};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1487;
+					type="VTE_NVAsoldier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10409.908,30.301477,7986.915};
+						angles[]={0.049959254,0,6.247201};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1488;
+					type="VTE_NVAmg";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10369.908,30.898914,7986.915};
+						angles[]={0.049958061,0,6.2751846};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=1;
+						isPlayable=1;
+					};
+					id=1489;
+					type="VTE_NVAmark";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1480;
+		};
+		class Item11
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10630.203,36.102428,8173.1362};
+						angles[]={0.04796192,0,0.044968102};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=1491;
+					type="VTE_soldierwo";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10635.203,36.565044,8168.186};
+						angles[]={0.04796192,0,0.044968102};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1492;
+					type="VTE_soldierwrto";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10625.203,36.441452,8168.186};
+						angles[]={0.096697628,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1493;
+					type="VTE_soldierwm14";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10640.203,37.030033,8163.186};
+						angles[]={0.04796192,0,0.044968102};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1494;
+					type="VTE_soldierwm14";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10620.203,36.946407,8163.186};
+						angles[]={0.096697628,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1495;
+					type="VTE_soldierwm14";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10645.203,37.495029,8158.186};
+						angles[]={0.04796192,0,0.044968102};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1496;
+					type="VTE_soldierwmg";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10615.203,37.451431,8158.186};
+						angles[]={0.096697628,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1497;
+					type="VTE_soldierwmg";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10650.203,37.938343,8153.186};
+						angles[]={0.047963165,0,6.2212648};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1498;
+					type="VTE_soldierwmedic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10610.203,37.956467,8153.186};
+						angles[]={0.096697628,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1499;
+					type="VTE_soldierwgl";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10655.203,37.821705,8148.186};
+						angles[]={0.022996427,0,6.2212648};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1500;
+					type="VTE_soldierwm14";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10605.203,38.291809,8148.186};
+						angles[]={0.0060001095,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1501;
+					type="VTE_soldierwm14";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10660.203,37.62674,8143.186};
+						angles[]={0.022996427,0,6.2212648};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1502;
+					type="VTE_soldierwm14";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1490;
+		};
+		class Item12
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10631.214,38.222759,8142.3545};
+						angles[]={0.0060001095,0,6.2791886};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1504;
+					type="VTE_soldierwo";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10636.214,38.232456,8137.4043};
+						angles[]={0.0060001095,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1505;
+					type="VTE_soldierwrto";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10626.214,38.272457,8137.4043};
+						angles[]={0.0060001095,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1506;
+					type="VTE_soldierwm14";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10641.214,38.242458,8132.4043};
+						angles[]={0.0060001095,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1507;
+					type="VTE_soldierwm14";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10621.214,38.32246,8132.4043};
+						angles[]={0.0060001095,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1508;
+					type="VTE_soldierwm14";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10646.214,38.252457,8127.4043};
+						angles[]={0.0060001095,0,6.2791886};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1509;
+					type="VTE_soldierwmg";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10616.214,38.43034,8127.4043};
+						angles[]={0.014998405,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1510;
+					type="VTE_soldierwmg";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10651.214,38.212692,8122.4043};
+						angles[]={0.0060001095,0,6.2382159};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1511;
+					type="VTE_soldierwmedic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10611.214,38.570347,8122.4043};
+						angles[]={0.014998405,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1512;
+					type="VTE_soldierwgl";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10656.214,38.017708,8117.4043};
+						angles[]={0.0060001095,0,6.2382159};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1513;
+					type="VTE_soldierwm14";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10606.214,38.710346,8117.4043};
+						angles[]={0.014998405,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1514;
+					type="VTE_soldierwm14";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10661.214,37.822697,8112.4043};
+						angles[]={0.0060001095,0,6.2382159};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1515;
+					type="VTE_soldierwm14";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1503;
+		};
+		class Item13
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10630.662,38.515015,8109.2378};
+						angles[]={0.014998405,0,6.2701883};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1517;
+					type="VTE_soldierwo";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10635.662,38.524273,8104.2876};
+						angles[]={0.014998405,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1518;
+					type="VTE_soldierwrto";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10625.662,38.65427,8104.2876};
+						angles[]={0.014998405,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1519;
+					type="VTE_soldierwm14";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10640.662,38.469486,8099.2876};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1520;
+					type="VTE_soldierwm14";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10620.662,38.729481,8099.2876};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1521;
+					type="VTE_soldierwm14";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10645.662,38.054462,8094.2876};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1522;
+					type="VTE_soldierwmg";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10615.662,38.444462,8094.2876};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1523;
+					type="VTE_soldierwmg";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10650.662,37.639488,8089.2876};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1524;
+					type="VTE_soldierwmedic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10610.662,38.171684,8089.2876};
+						angles[]={0.051953323,0,6.1489968};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1525;
+					type="VTE_soldierwgl";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10655.662,37.224472,8084.2876};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1526;
+					type="VTE_soldierwm14";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10605.662,39.106739,8084.2876};
+						angles[]={0.051953323,0,6.1489968};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1527;
+					type="VTE_soldierwm14";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10660.662,36.809448,8079.2876};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1528;
+					type="VTE_soldierwm14";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1516;
+		};
+		class Item14
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10629.559,36.914722,8075.0151};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1530;
+					type="VTE_soldierwo";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10634.559,36.503231,8070.0649};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1531;
+					type="VTE_soldierwrto";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10624.559,37.295296,8070.0649};
+						angles[]={0.051953323,0,6.1489968};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.466667;
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=1532;
+					type="VTE_soldierwm14";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10639.559,36.088203,8065.0649};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1533;
+					type="VTE_soldierwm14";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10619.559,38.230251,8065.0649};
+						angles[]={0.051953323,0,6.1489968};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.33333299;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=1534;
+					type="VTE_soldierwm14";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10644.559,35.673233,8060.0649};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1535;
+					type="VTE_soldierwmg";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10614.559,39.165268,8060.0649};
+						angles[]={0.051953323,0,6.1489968};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1536;
+					type="VTE_soldierwmg";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10649.559,35.258217,8055.0649};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1537;
+					type="VTE_soldierwmedic";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10609.559,40.100327,8055.0649};
+						angles[]={0.051953323,0,6.1489968};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1538;
+					type="VTE_soldierwgl";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10654.559,34.843246,8050.0649};
+						angles[]={6.2133002,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1539;
+					type="VTE_soldierwm14";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10604.559,41.03524,8050.0649};
+						angles[]={0.051953323,0,6.1489968};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1540;
+					type="VTE_soldierwm14";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10659.559,34.742287,8045.0649};
+						angles[]={6.276186,0,6.2701883};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						skill=0.2;
+						isPlayable=1;
+					};
+					id=1541;
+					type="VTE_soldierwm14";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1529;
+		};
+	};
+};
+class OutroLoose
+{
+	class Intel
+	{
+		startWeather=0.12;
+		startWind=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2006;
+		month=11;
+		day=17;
+		hour=16;
+		minute=45;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};
+class OutroWin
+{
+	class Intel
+	{
+		startWeather=0.12;
+		startWind=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		year=2006;
+		month=11;
+		day=17;
+		hour=16;
+		minute=45;
+		startFogDecay=0.0049333;
+		forecastFogDecay=0.0049333;
+	};
+};

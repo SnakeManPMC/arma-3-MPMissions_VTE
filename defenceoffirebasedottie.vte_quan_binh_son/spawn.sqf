@@ -1,0 +1,26 @@
+
+private ["_player"];
+if (!local player) exitwith {};
+_player = player;
+removeAllWeapons _player;
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addmagazine "VTE_20Rnd_556x45";
+_player addweapon "VTE_M16A1";
+_player selectweapon "VTE_M16A1";
+_player addmagazine "HandGrenade";
+_player addmagazine "VTE_7Rnd_1911";
+_player addmagazine "VTE_7Rnd_1911";
+_player addmagazine "VTE_7Rnd_1911";
+_player addmagazine "VTE_7Rnd_1911";
+_player addmagazine "VTE_7Rnd_1911";
+_player addmagazine "VTE_7Rnd_1911";
+_player addmagazine "VTE_7Rnd_1911";
+_player addmagazine "VTE_7Rnd_1911";
+_player addweapon "VTE_M1911";

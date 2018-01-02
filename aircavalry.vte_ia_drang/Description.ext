@@ -1,0 +1,47 @@
+author = "Anzac SAS Steve";
+overviewText = "Multiple targets.";
+overviewPicture = "";
+
+
+class Header
+{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 20;
+};
+
+class CfgSounds
+{
+	sounds[] = 
+	{
+		click,click2
+	};
+	class click
+	{
+		name = "click";
+		sound[] = {"click.ogg", 0.9, 1.3};
+		titles[] = {	};
+	};
+	class click2
+	{
+		name = "click2";
+		sound[] = {"click2.ogg", 0.9, 1.3};
+		titles[] = {	};
+	};
+};
+
+
+
+respawn=base;
+respawndelay=8;
+disabledAI=1;
+
+
+
+onLoadMission = "Heli-borne Air Assault Tactics";
+OnLoadMissionTime = False;
+
+
+
+
+

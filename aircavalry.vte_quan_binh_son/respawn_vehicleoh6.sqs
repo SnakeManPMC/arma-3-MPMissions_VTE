@@ -1,0 +1,106 @@
+; *****************************************************
+; ** Operation Flashpoint Script File
+; *****************************************************
+
+? !(Local server) : Exit
+
+
+
+_vehicle = Vehicle _this
+
+_startpos = GetPos _vehicle
+
+_direction = GetDir _vehicle
+
+_typ = TypeOf _this
+
+
+
+
+
+#loop
+
+~10
+
+? (GetDammage _vehicle > 0.98) : Goto "checkdamage"
+
+? !(CanMove _vehicle) : Goto "checkmove"
+
+? (Fuel _vehicle == 0) : Goto "checkfuel"
+
+
+Goto "loop"
+
+
+
+
+
+#checkdamage
+
+~10
+
+? (GetDammage _vehicle > 0.98) : Goto "destruct"
+
+Goto "loop"
+
+
+
+
+
+#checkmove
+
+~10
+
+? (GetDammage _vehicle == 1) : Goto "destruct"
+
+~120
+
+? (CanMove _vehicle) : Goto "loop"
+
+Goto "destruct"
+
+
+
+
+
+#checkfuel
+
+~10
+
+? (GetDammage _vehicle == 1) : Goto "destruct"
+
+~120
+
+? (Fuel _vehicle > 0) : Goto "loop"
+
+Goto "destruct"
+
+
+
+
+
+#destruct
+
+? (GetDammage _vehicle < 1) : _vehicle SetDammage 1
+
+~30
+
+DeleteVehicle _vehicle
+
+Goto "createnew"
+
+
+
+
+
+#createnew
+
+~10
+
+_new = _typ CreateVehicle [_startpos Select 0, _startpos Select 1,0]
+
+_new SetDir _direction
+_new addAction ["Drop Smoke Grenade","DropSmoke.sqf",[],0,false]
+_new Exec "respawn_vehicle.sqs"
+
+Exi 

@@ -1,0 +1,547 @@
+author = "Unknown";
+overviewText = "Various objectives, long mission.";
+overviewPicture = "";
+
+disabledAI = 1;
+
+respawn = "3";
+respawndelay = "30";
+
+onloadmission = "Lock and load";
+OnLoadMissionTime = false;
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 40;
+	playerCountMultipleOf = 1;
+};
+
+titleparam1 = "Respawns:";
+valuesparam1[] = {0, 1, 2, 3, 4, 5, 10, 15, 20, 1000};
+defvalueparam1 = 1000;
+textsparam1[] = {None, 1, 4, 10, 15, 20, Infinite};
+
+// Put all your own stuff at the end of this file (CfgSounds, CfgMusics, etc.)
+//
+//
+
+// Control types
+#define CT_STATIC						0
+#define CT_BUTTON						1
+#define CT_EDIT							2
+#define CT_SLIDER						3
+#define CT_COMBO						4
+#define CT_LISTBOX					5
+#define CT_TOOLBOX					6
+#define CT_CHECKBOXES				7
+#define CT_PROGRESS					8
+#define CT_HTML							9
+#define CT_STATIC_SKEW			10
+#define CT_ACTIVETEXT				11
+#define CT_TREE							12
+#define CT_3DSTATIC					20
+#define CT_3DACTIVETEXT			21
+#define CT_3DLISTBOX				22
+#define CT_3DHTML						23
+#define CT_3DSLIDER					24
+#define CT_3DEDIT						25
+#define CT_OBJECT						80
+#define CT_OBJECT_ZOOM			81
+#define CT_OBJECT_CONTAINER	82
+#define CT_OBJECT_CONT_ANIM	83
+#define CT_USER							99
+
+// Static styles
+#define ST_HPOS						0x0F
+#define ST_LEFT						0
+#define ST_RIGHT					1
+#define ST_CENTER					2
+#define ST_UP							3
+#define ST_DOWN						4
+#define ST_VCENTER				5
+
+#define ST_TYPE						0xF0
+#define ST_SINGLE					0
+#define ST_MULTI					16
+#define ST_TITLE_BAR			32
+#define ST_PICTURE				48
+#define ST_FRAME					64
+#define ST_BACKGROUND			80
+#define ST_GROUP_BOX			96
+#define ST_GROUP_BOX2			112
+#define ST_HUD_BACKGROUND	128
+#define ST_TILE_PICTURE		144
+#define ST_WITH_RECT			160
+#define ST_LINE						176
+
+#define ST_SHADOW					256
+#define ST_NO_RECT				512
+
+#define ST_TITLE					ST_TITLE_BAR + ST_CENTER
+
+// Predefined controls
+#define IDC_OK						1
+#define IDC_CANCEL				2
+
+// Colors
+#define TextColor			0.08, 0.08, 0.12
+#define InvTextColor	0.35, 0.38, 0.36
+
+// Fonts
+#define FontS "tahomaB24"
+#define FontM "tahomaB36"
+
+#define FontHTML "courierNewB64"
+#define FontHTMLBold "courierNewB64"
+#define FontMAP "courierNewB64"
+#define FontMAIN "SteelfishB64"
+#define FontMAINCZ "SteelfishB64CE"
+#define FontTITLE "SteelfishB128"
+#define FontTITLEHalf "SteelfishB64"
+#define FontBOOK "garamond64"
+#define FontNOTES "AudreysHandI48"
+
+
+class RscSliderV
+{
+	type = CT_SLIDER;
+	style = SL_VERT;
+	color[] = {0, 1, 0, 1};
+	angle = 0;
+};
+
+class RscText
+{
+	type = CT_STATIC;
+	idc = -1;
+	style = ST_LEFT;
+	h = 0.04; 
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {TextColor, 0.75};
+  	font = FontS;
+	sizeEx = 0.02;
+};
+
+class RscActiveText
+{
+	type = CT_ACTIVETEXT;
+	style = ST_LEFT;
+	color[] = {0, 0, 0, 1};
+	colorActive[] = {1, 1, 1, 1};
+  	font = FontMAIN;
+	sizeEx = 0.05;
+	soundEnter[] = {"ui\ui_over", 0.2, 1};
+	soundPush[] = {, 0.2, 1};
+	soundClick[] = {"ui\ui_ok", 0.2, 1};
+	soundEscape[] = {"ui\ui_cc", 0.2, 1};
+	default = false;
+};
+
+class RscActiveMenu : RscActiveText
+{
+	color[] = {1, 1, 1, 1};
+	colorActive[] = {1, 0, 0, 1};
+	font = FontTITLEHalf;
+	sizeEx = 0.05;
+	default = false;
+};
+
+class RscObject
+{
+	type = CT_OBJECT;
+	scale = 1.0;
+	direction[] = {0, 0, 1};
+	up[] = {0, 1, 0};
+};
+
+class RscObjListBox
+{
+	type = CT_LISTBOX;
+	font = FontTITLEHalf;	
+	style = 4;
+	selection = "display";
+	angle = 0;
+	size = 0.8;	// 3D size
+	color[] = {0, 0, 0, 0};	
+	colorSelect[] = {0, 1, 0, 1};
+	colorSelectBackground[] = {0, 1, 0, 0.2};
+	colorText[] = {0, 1, 0, 0.5};
+};
+class RscHTML{};
+
+class DlgSpectateDeath
+{
+	idd = 821151551;
+	movingEnable = true;
+	controlsBackground[]=
+	{
+		Background4,
+		Background5,
+		BackgroundMenu,
+		BackgroundList	
+	};
+	class Background4 : RscText
+	{
+		x = 0.0;
+		y = 0.0;
+		w = 1;
+		h = 0.065;
+		text = ;
+		colorBackground[] = {0, 0, 0, 1};
+	};
+	class Background5 : RscText
+	{
+		x = 0.0;
+		y = 0.935;
+		w = 1;
+		h = 0.065;
+		text = ;
+		colorBackground[] = {0, 0, 0, 1};
+	};
+	class BackgroundMenu : RscText
+	{
+		idc = 1046006;
+		style = ST_HUD_BACKGROUND;
+		x = 0.02;
+		y = 0.055;
+		w = 0.120;
+		h = 0.19;
+		text = ;
+		colorBackground[] = {0, 0, 0, 0.8};
+	};	
+	class BackgroundList : RscText
+	{
+		idc = 1047001;
+		style = ST_HUD_BACKGROUND;
+		x = 0.84;
+		y = 0.055;
+		w = 0.14;
+		h = 0.26;		
+		
+		text = ;
+		colorBackground[] = {0, 0, 0, 0.8};
+	};		
+
+	controls[]=
+	{
+		Title,
+		ButtonPREV,
+		ButtonNEXT,
+		Spectation,
+		PlrName,
+		menu,
+		menu2,
+		MenuPlrs,
+		MenuPlrs2,
+		MenuItem1,
+		MenuItem2,
+		MenuItem3,
+		MenuItem4,
+		MenuItem5,
+		MenuSlider,
+		MenuLine,
+		MenuSliderLTR1,		
+		MenuSliderLTR2,		
+		MenuSliderLTR3,		
+		MenuSliderLTR4,		
+		MenuSliderLTR5,		
+		MenuSliderLTR6,		
+		MenuSliderLTR7,		
+		MenuSliderLTR8,		
+		ListBox
+		
+	};
+	
+	class ListBox : RscObjListBox
+	{
+		idc = 1047002;
+		x = 0.85;
+		y = 0.075;
+		w = 0.12;
+		h = 0.22;
+		rows = 5;
+		rowHeight = 0.01;
+		size = 0.56;	// 3D size
+	
+		colorText[] = {1, 1, 1, 0.6};
+		colorSelect[] = {0.3, 0.5, 1, 1};		
+		colorSelectBackground[] = {0, 1, 0, 0.2};
+	};
+		
+	class Title : RscText
+	{
+		idc = -1;
+		style = ST_CENTER;
+		x = 0.2;
+		y = -0.015;
+		w = 0.6;
+		h = 0.1;
+		font = FontTITLEHalf;
+		colorText[] = {1, 0, 0, 1};
+		sizeEx = 0.048;
+		text = "YOU ARE K.O.";
+	};
+
+	class ButtonNEXT : RscActiveMenu
+	{
+		idc = -1;
+		x = 0.90;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;		
+		text = "Next >>";
+		default = 0;
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "1 exec ""nextCam.sqs""";
+	};	
+		
+	class ButtonPREV : RscActiveMenu
+	{
+		idc = -1;
+		x = 0.55;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;		
+		text = "<< Previous";
+		default = 0;
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "-1 exec ""nextCam.sqs""";
+	};
+
+	
+	class Spectation : RscText
+	{
+		idc = -1;
+		style = ST_CENTER;
+		x = 0.70;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;
+		font = FontTITLEHalf;
+		colorText[] = {1, 0, 0, 1};
+		sizeEx = 0.05;
+		text = "- Spectating -";		
+	};	
+
+	class PlrName : RscText
+	{
+		idc = 116969;
+		style = ST_CENTER;
+		x = 0.10;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;
+		font = FontTITLEHalf;
+		colorText[] = {1, 0, 0, 1};
+		color[] = {1, 0, 0, 1};		
+		colorActive[] = {1, 0.2, 0.2, 1};			
+		sizeEx = 0.05;
+		text = "Unknown";
+				
+	};	
+			
+	class Menu : RscActiveMenu
+	{
+		idc = 1046007;
+		x = 0.03;
+		y = 0.02;
+		w = 0.15;
+		h = 0.025;
+		text = "view menu";
+		default = 0;
+		angle = 90;
+		colorActive[] = {0.4, 0.8, 1, 1};		
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "ctrlShow [1046001,false];ctrlShow [1046002,false];ctrlShow [1046003,false];ctrlShow [1046004,false];ctrlShow [1046005,false];ctrlShow [1046006,false];ctrlShow [1046007,false];ctrlShow [1046008,true];ctrlShow [1046009,false];ctrlShow [1046010,false];ctrlShow [1046011,false];ctrlShow [1046012,false];ctrlShow [1046013,false];ctrlShow [1046014,false];ctrlShow [1046015,false];ctrlShow [1046016,false];ctrlShow [1046017,false];ctrlShow [1046018,false];ctrlShow [1046019,false]";
+		sizeEx = 0.028;
+	};	
+	
+	class Menu2 : Menu
+	{
+		idc = 1046008;
+		color[] = {1.0, 1.0, 1.0, 0.4};
+		colorActive[] = {0.3, 0.5, 1, 1};
+		action = "ctrlShow [1046001,true];ctrlShow [1046002,true];ctrlShow [1046003,true];ctrlShow [1046004,true];ctrlShow [1046005,true];ctrlShow [1046006,true];ctrlShow [1046007,true];ctrlShow [1046008,false];ctrlShow [1046009,true];ctrlShow [1046010,true];ctrlShow [1046011,true];ctrlShow [1046012,true];ctrlShow [1046013,true];ctrlShow [1046014,true];ctrlShow [1046015,true];ctrlShow [1046016,true];ctrlShow [1046017,true];ctrlShow [1046018,true];ctrlShow [1046019,true]";
+	};		
+	
+	class MenuPlrs : RscActiveMenu
+	{		
+		idc = 1048001;
+		x = 0.92;
+		y = 0.02;
+		w = 0.15;
+		h = 0.025;
+		text = "namelist";
+		default = 0;
+		angle = 90;
+		colorActive[] = {0.4, 0.8, 1, 1};		
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "ctrlShow [1047002,false];ctrlShow [1047001,false];ctrlShow [1048001,false];ctrlShow [1048002,true];";
+		sizeEx = 0.028;
+	};	
+	class MenuPlrs2 : MenuPlrs
+	{
+		idc = 1048002;
+		color[] = {1.0, 1.0, 1.0, 0.4};
+		colorActive[] = {0.3, 0.5, 1, 1};
+		action = "ctrlShow [1047002,true];ctrlShow [1047001,true];ctrlShow [1048001,true];ctrlShow [1048002,false];";
+	};			
+	
+	class MenuItem1 : RscActiveMenu
+	{
+		idc = 1046001;
+		x = 0.03;
+		y = 0.08;
+		w = 0.08;
+		h = 0.025;
+		text = "Close View";
+		default = 0;
+		angle = 90;
+		colorText[] = {1, 1, 1, 0.6};
+		colorActive[] = {0.3, 0.5, 1, 1};		
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "DeathCam camSetFOV 0.976;DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamComSpeed = 0.4;DeathCamRelPos = [0,-2,0.3];DeathCamTarHeight = 1.7;DeathCamCineViewSpecial = 0;DeathCamExit = false";
+		sizeEx = 0.028;
+	};		
+	
+	class MenuItem2 : MenuItem1
+	{
+		idc = 1046002;
+		y = 0.11;
+		text = "Far View";		
+		action = "DeathCam camSetFOV 0.976;DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamComSpeed = 1.9;DeathCamRelPos = [0,-8,2.5];DeathCamTarHeight = 1.5;DeathCamCineViewSpecial = 0;";
+	};
+	class MenuItem3 : MenuItem1
+	{
+		idc = 1046003;
+		y = 0.14;		
+		text = "Front View";		
+		action = "DeathCam camSetFOV 0.976;DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamComSpeed = 0.1;DeathCamRelPos = [0,4.0,0.02];DeathCamTarHeight = 1.7;DeathCamCineViewSpecial = 0;";
+	};	
+	class MenuItem4 : MenuItem1
+	{
+		idc = 1046004;
+		y = 0.17;
+		text = "Top View";		
+		action = "DeathCam camSetFOV 0.976;DeathCam camSetTarget [0,0,-99999999.99];DeathCamComSpeed = 0.05;DeathCamRelPos = [0,0.1,50.0];DeathCamTarHeight = 1.7;DeathCamCineViewSpecial = 2;";
+	};		
+	class MenuItem5 : MenuItem1
+	{
+		idc = 1046005;
+		y = 0.20;
+		text = "Cinematic View";
+		action = "DeathCam camSetFOV 0.976;DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamRelPos = [3,70.1,10.0];DeathCam camSetRelPos DeathCamRelPos;DeathCamComSpeed = 0;DeathCamCineViewSpecial = 1;";
+	};
+	
+	class MenuLine : RscText
+	{
+		idc = 1046011;	
+		style = ST_LINE;
+		x = 0.113;
+		y = 0.0;
+		w = 0;
+		h = 0.243;
+		text = ;
+		colorBackground[] = {1, 1, 1, 1};
+		color[] = {1, 1, 1, 1};
+		colorText[] = {0, 0, 0, 1};
+	};	
+	
+	class MenuSlider : RscSliderV
+	{
+		idc = 1046010;
+		x = 0.12;
+		y = 0.08;
+		w = 0.015;
+		h = 0.15;
+		color[] = {1, 1, 1, 0.8};
+	};	
+	
+	class MenuSliderLTR1 : RscText
+	{
+		idc = 1046012;	
+		x = 0.1145;
+		y = 0.1045;
+		w = 0.015;
+		h = 0.01;
+		text = "D";
+		color[] = {1, 1, 1, 1};		
+		colorText[] = {1, 1, 1, 0.2};
+		sizeEx = 0.018;				
+	};	
+
+	class MenuSliderLTR2 : MenuSliderLTR1
+	{
+		idc = 1046013;
+		x = 0.1150;			
+		y = 0.1175;
+		text = "I";
+	};			
+
+	class MenuSliderLTR3 : MenuSliderLTR1
+	{
+		idc = 1046014;	
+		y = 0.1305;
+		text = "S";
+	};			
+
+	class MenuSliderLTR4 : MenuSliderLTR1
+	{
+		idc = 1046015;	
+		y = 0.1435;
+		text = "T";
+	};			
+
+	class MenuSliderLTR5 : MenuSliderLTR1
+	{
+		idc = 1046016;	
+		y = 0.1565;
+		text = "A";
+	};			
+
+	class MenuSliderLTR6 : MenuSliderLTR1
+	{
+		idc = 1046017;	
+		y = 0.1695;
+		text = "N";
+	};			
+
+
+	class MenuSliderLTR7 : MenuSliderLTR1
+	{
+		idc = 1046018;	
+		y = 0.1830;
+		text = "C";
+	};			
+
+
+	class MenuSliderLTR8 : MenuSliderLTR1
+	{
+		idc = 1046019;	
+		y = 0.1960;
+		text = "E";
+	};			
+	
+	
+	
+};
+
+class CfgSounds
+{
+	sounds[] = {radio, radio2};
+	
+	class radio
+	{
+		name = "radio";
+		sound[] = {"radio.ogg", db-10, 0.95};
+		titles[] = {   };
+		};
+        class radio2
+	{
+		name = "radio2";
+		sound[] = {"radio2.ogg", db-10, 0.95};
+		titles[] = {   };
+	};
+};

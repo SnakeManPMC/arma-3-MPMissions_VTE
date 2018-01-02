@@ -1,0 +1,81 @@
+;Universal Weapons Respawn Script v1.04 (March 31, 2003) revised (February 1, 2007)
+;Required Version: ArmA
+;original by toadlife revised by norrin for ArmA
+;toadlife@toadlife.net
+;intialize like this: ["unitname",0] exec "weapons_respawn.sqs"
+;            Or this: ["unitname",1] exec "weapons_respawn.sqs"
+;
+; * "unitname" = The name of the player the script runs on (must be enclosed by quotes!)
+; * 0/1 = method of repleneshing weapons
+;  **if method is 0, the player gets the same weapons he started out with every time
+;  **if method is 1, the player gets the same weapons he had when he died
+;
+; Advanced example method of initializing script - put the following lines in your init.sqs,
+; and replce the unit names with your own:
+;_units = ["w1","w2","w3","w4","w5","w6","w7","w8","w9","w10","w11","w12","w13","w14","w15","w16","w17","w18"]
+;{[_x,0] exec {weapons_respawn.sqs}} foreach _units
+;
+;
+
+~(random 0.3)
+_name = _this select 0
+_method = _this select 1
+_hasrifle = false
+_unit = call compile format["%1",_name]
+?(_method == 0):_return = "checklocal";goto "guncheck"
+
+#checklocal
+_unit = call compile format["%1",_name]
+?(local _unit):goto "respawnloop"
+~(1 + (random 3))
+goto "checklocal"
+
+#respawnloop
+@!alive _unit
+#checkmethod
+?(_method == 1):_return = "waitforlife";goto "guncheck"
+
+#waitforlife
+@alive call compile format["%1",_name]
+_unit = call compile format["%1",_name]
+removeAllWeapons _unit
+?_hasrifle:_guns = _guns - [_prigun];_guncount = count _guns
+_c = 0
+while {_c <= (_magcount - 1)} do {_unit addmagazine (_mags select _c); _c = _c + 1}
+_c = 0
+while {_c <= (_guncount - 1)} do {_unit addweapon (_guns select _c); _c = _c + 1}
+?_hasrifle:_unit addweapon _prigun;_gun = _guns + [_prigun]
+;//If unit has a rifle select it
+?_hasrifle:goto "selectrifle"
+
+;//No rifle - if unit has a pistol, select it
+?_unit hasweapon ((weapons _unit - [secondaryweapon _unit,"Binocular","NVGoggles"]) select 0):_unit selectweapon ((weapons _unit - [secondaryweapon _unit,"Binocular","NVGoggles"]) select 0);goto "respawnloop"
+
+;//No rifle or pistol, select secondary weapon
+_unit selectweapon secondaryweapon _unit
+goto "respawnloop"
+
+#selectrifle
+;// BUG WORKAROUND! - Added to compensate for selectweapon bug 
+;// Any gun with more than one muzzle (grenadelaunchers) cannot be selected with selectweapon!
+;// Default Grenadelaunchers supported - Add your own types if you need to.
+_unit selectweapon _prigun
+?_prigun == "M16A2GL":_unit selectweapon "M16Muzzle"
+?_prigun == "M16A4GL":_unit selectweapon "M16Muzzle"
+?_prigun == "M16A4_ACG_GL":_unit selectweapon "M16Muzzle"
+?_prigun == "M4GL":_unit selectweapon "M4Muzzle"
+?_prigun == "M4A1GL":_unit selectweapon "M4Muzzle"
+?_prigun == "AK74GL":_unit selectweapon "AK74Muzzle"
+
+goto "respawnloop"
+
+
+#guncheck
+_guns = weapons _unit
+_mags = magazines _unit
+~(random 0.5)
+_guncount = count _guns
+_magcount = count _mags
+?_unit hasweapon (primaryweapon _unit):_hasrifle = true;_prigun = primaryweapon _unit;goto _return
+_hasrifle = false
+goto _return

@@ -1,0 +1,76 @@
+;--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;Airstrike_naplam an OFP script by Skumball
+;(thanks to Viriato for making the bombs fall better :)
+;(thanks to LCD for incorporating the script into the radio)
+;requires OFP v1.85
+;
+;Modified by LCD to use napalm script and to call the Grid Location of the target
+;
+;This script will execute a bombing run wherever the player clicks on the map. The mission requires:
+;Addon Called Napalm.pbo (attached in the Zip File)
+;3 Markers: "spawn", "safe" and "target", all set to 'empty'.
+;A trigger: Radius - 0, Activation: Radio Bravo set to Repeatedly, On Activation: onMapSingleClick {[_pos] exec "airstrike_naplam.sqs"}; strikePilot sideChat "Give me a target"
+;A trigger: Radius - covering the whole island, Activation: Anybody Present set to Once, Named : Killzone
+;It also needs a soldier called "strikePilot".
+;
+;A pilot waits at "safe". When Radio (0,0,2) is issued and the map is clicked a plane is created at "spawn" and the pilot is moved into the plane.
+;A script named "gridcoordinates_pipe.sqs" is used to generate the grid location and give it when the target is called
+;The pilot flies to the location and 4 LGB's are created at a small random radius beneath the plane.
+;A script named "napalm.sqs" is used to detect When the LGB's are under the hight of 1M a NapalmBomb vehicle type is created to give it a look of napalm and a script "burn.sqs" is used to give dammage to all close units
+;The pilot then flies back to "spawn" where the plane is deleted and the pilot is moved back to the "safe" location.
+;
+;Try changing the value of _num, *0.2 and ~0.3 to achieve different results.
+;
+;Comments/Suggestions - LCD344@Yahoo.com
+;--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 setRadioMsg "Null"
+4 setRadioMsg "Null"
+
+_pos = _this select 0
+[_pos, "Target at grid location ", ". Over.", ["SideChat", player]] exec "gridcoordinates_pipe.sqs"
+onMapSingleClick {false}
+"target" setMarkerPos _pos
+"target" setMarkerType "destroy"
+
+strikePlane = "DKMM_OV10_B" createvehicle (getMarkerPos "spawn")
+strikePlane setPos [(getPos strikePlane select 0),(getPos strikePlane select 1),(getPos strikePlane select 2)+800]
+strikePlane setDir 180
+
+strikePilot assignAsDriver strikePlane
+strikePilot moveInDriver strikePlane
+strikePilot doMove _pos
+strikePilot sideChat "On the way. stand by."
+
+@ unitReady strikePilot
+strikePilot sideChat "NAPALM! NAPALM!"
+
+_num = 4
+_i = 0
+
+#loop
+_bomb = "laserGuidedBomb" createvehicle [(getPos strikePlane select 0)+((random 10)-5),(getPos strikePlane select 1)+((random 10)-5),(getPos strikePlane select 2)-3]
+_bomb setDir (getDir strikePlane)
+_bomb setVelocity [(velocity strikePlane select 0)*0.2,(velocity strikePlane select 1)*0.2,(velocity strikePlane select 2)*0.2]
+_i = _i + 1
+[_bomb,killzone] exec "napalm.sqs"
+~0.3
+? _i < _num : goto "loop"
+
+strikePilot doMove (getMarkerPos "spawn")
+~5
+
+strikePilot sideChat "YEEAAAH BURN BABY BURN!"
+
+"target" setMarkerType "empty"
+
+@ unitReady strikePilot
+deleteVehicle strikePlane
+strikePilot setVelocity [0,0,0]
+strikePilot setPos (getMarkerPos "safe")
+strikePilot sideChat "Ready."
+
+3 setRadioMsg "Airstrike LGB"
+4 setRadioMsg "Airstrike Napalm"
+
+exit

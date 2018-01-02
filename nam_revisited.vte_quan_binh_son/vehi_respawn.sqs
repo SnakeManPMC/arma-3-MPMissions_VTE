@@ -1,0 +1,41 @@
+; Vehicle Respawn Script by {nBs}-Myke-{CO}
+; Usage: [this, 60, [0, 0], 180] exec "vehi_respawn.sqs"
+; this: refers to the vehicle. Enter vehicle name when not using in Vehicles Init line
+; 60: Time until respawn in seconds.
+; [0, 0] Enter XY coordinates for manual respawn place setting or just enter 0 (no square brackets) for automatic detection
+; 180: Enter Vehicle heading manually. For automatic detection enter 361
+; aslong Units are inside, vehicle will not respawn and can be repaired
+
+?! (local server): exit
+
+_vehicle = _this select 0
+_delay = _this select 1
+_pos = _this select 2
+_dir = _this select 3
+
+; defining possible vehicle positions
+_driver = _vehicle emptypositions "driver"
+_gunner = _vehicle emptypositions "gunner"
+_commander = _vehicle emptypositions "Commander"
+_crew = _vehicle emptypositions "Cargo"
+
+? (_pos == 0): _startpos = getpos _vehicle
+? (_dir == 361): _startdir = getdir _vehicle
+
+#waiting
+; waiting for Vehicle is disabled
+@ !(canmove _vehicle) &! (canfire _vehicle)
+
+; checking if vehicle still is manned
+
+@ (isnull driver _vehicle) && (isnull gunner _vehicle) && (isnull commander _vehicle)
+
+~_delay
+? (canmove _vehicle) && (canfire _vehicle): goto "waiting"
+_new = typeof _vehicle
+deletevehicle _vehicle
+_newveh = _new createvehicle _startpos
+_newveh setpos _startpos
+_newveh setdir _startdir
+[_newveh, _delay, _pos, _dir] exec "vehi_respawn.sqs"
+exit

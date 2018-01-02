@@ -1,0 +1,156 @@
+;
+; CAMERA_FOLLOW SCRIPT 
+;
+; Upon the player falling unconcious creates a camera that follows the nearest alive friendly unit 
+;
+; © June 2007 - norrin (norrins_nook@iprimus.com.au)
+;
+;**************************************************************************************************************************
+; Start camera_follow.sqs
+
+_Object = _this select 0
+_pos = _this select 1
+_can_revive = _this select 2
+_c = 0;
+_d = 0;
+
+#start_cam
+;set camera to target body
+_camx = getpos _Object select 0
+_camy = getpos _Object select 1
+_camz = getpos _Object select 2
+_cam = "camera" CamCreate [_camx,_camy+5,_camz+1]
+_cam CamSetTarget _Object
+_cam CameraEffect ["INTERNAL","Back"]
+_cam CamCommit 2
+~4
+titlecut [" ","BLACK OUT",10]
+titleText ["You are unconscious and waiting to be revived", "PLAIN"]
+~3
+titlecut [" ","BLACK IN",1]
+~5
+?(animationState player != "AmovPpneMstpSnonWnonDnon"): goto "destroy"
+?(mission_Over): goto "destroy"
+if (count nearestObjects [_Object,[_can_revive],100] < 2) then {goto "body_cam"}
+_near_units = nearestObjects [_Object,[_can_revive],100]
+_near_unit = _near_units select 1
+if (!alive _near_unit || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon_healed" || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon") then {_near_unit = _near_units select 2}
+if (!alive _near_unit || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon_healed" || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon") then {_near_unit = _near_units select 3}
+if (!alive _near_unit || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon_healed" || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon") then {_near_unit = _near_units select 4}
+?(alive _near_unit && follow_cam == 1):goto "AI_cam" 
+~1
+goto "body_cam" 
+
+
+;set camera to follow nearest unit if range is lees than 100 metres
+#AI_cam
+;create respawn button
+_e = 0;
+_f = 0;
+{call compile format ["if(isplayer %1) then {_f = _f + 1}", _x]} forEach player_units 
+{call compile format ["if(animationState %1 == ""AmovPpneMstpSnonWnonDnon"")then {_e = _e + 1}", _x]}forEach player_units
+_nearest_friend = count nearestObjects [_Object,[_can_revive], distance_to_friend]
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 1 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 1 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 1) then {_d = 1; _dialog_1 = createDialog "respawn_button_1"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 2 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 2 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 2) then {_d = 1; _dialog_1 = createDialog "respawn_button_2"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 3 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 3 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 3) then {_d = 1; _dialog_1 = createDialog "respawn_button_3"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 4 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 4 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 4) then {_d = 1; _dialog_1 = createDialog "respawn_button_4"}
+;if nearest AI dies reset camera target
+?(!alive _near_unit): _c = 0; goto "body_cam"
+;if player is revived destroy camera
+?(animationState player != "AmovPpneMstpSnonWnonDnon"): goto "destroy"
+?(mission_Over): goto "destroy"
+~0.01
+;if AI_unit moves too far away reset camera
+?(_Object distance getPos _near_unit > 100): _c = 0; goto "body_cam"
+;if AI_unit enters vehicle
+?(vehicle _near_unit != _near_unit): _c = 0; goto "vcl_cam"
+;if unconcious AI_unit reset camera target 
+?(animationState _near_unit  == "AmovPpneMstpSnonWnonDnon_healed" || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon"): goto "body_cam"
+_cam cameraeffect ["internal", "back"]
+_cam camsettarget _near_unit
+_cam camsetrelpos [0,-2, 2]
+_cam camcommit 2
+if (_c == 0) then {titleText [format ["Camera following: %1", name _near_unit], "PLAIN DOWN"]}
+_c = _c + 1;
+if (_c == 400) then {_c = 0}
+~0.01
+goto "AI_cam"
+
+
+;if AI_unit enters vehicle
+#vcl_cam
+;create respawn button
+_e = 0;
+_f = 0;
+{call compile format ["if(isplayer %1) then {_f = _f + 1}", _x]} forEach player_units 
+{call compile format ["if(animationState %1 == ""AmovPpneMstpSnonWnonDnon"")then {_e = _e + 1}", _x]}forEach player_units
+_nearest_friend = count (nearestObjects [_Object,[_can_revive], distance_to_friend])
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 1 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 1 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 1) then {_d = 1; _dialog_1 = createDialog "respawn_button_1"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 2 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 2 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 2) then {_d = 1; _dialog_1 = createDialog "respawn_button_2"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 3 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 3 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 3) then {_d = 1; _dialog_1 = createDialog "respawn_button_3"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 4 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 4 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 4) then {_d = 1; _dialog_1 = createDialog "respawn_button_4"}
+_vcl = vehicle _near_unit
+;if nearest AI dies reset camera target
+?(!alive _near_unit): _c = 0; goto "body_cam"
+;if player is revived destroy camera
+?(animationState player != "AmovPpneMstpSnonWnonDnon"): goto "destroy"
+?(mission_Over): goto "destroy"
+;if AI exits vehicle
+?(vehicle _near_unit == _near_unit): _c = 0; goto "AI_cam"
+;if AI_unit moves too far away reset camera
+?(_Object distance getPos _vcl > 100): _c = 0; goto "body_cam"
+
+_cam cameraeffect ["internal", "back"]
+_cam camsettarget _vcl
+_cam camsetrelpos [0,-6, 2]
+_cam camcommit 2
+if (_c == 0) then {titleText [format ["Camera following: %1", name _near_unit], "PLAIN DOWN"]}
+_c = _c + 1;
+if (_c == 200) then {_c = 0}
+~0.05
+goto "vcl_cam"
+
+;if no friendly units within 100 metres camera set on body 
+#body_cam
+;create respawn button
+_e = 0;
+_f = 0;
+{call compile format ["if(isplayer %1) then {_f = _f + 1}", _x]} forEach player_units 
+{call compile format ["if(animationState %1 == ""AmovPpneMstpSnonWnonDnon"")then {_e = _e + 1}", _x]}forEach player_units
+_nearest_friend = count (nearestObjects [_Object,[_can_revive], distance_to_friend])
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 1 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 1 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 1) then {_d = 1; _dialog_1 = createDialog "respawn_button_1"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 2 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 2 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 2) then {_d = 1; _dialog_1 = createDialog "respawn_button_2"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 3 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 3 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 3) then {_d = 1; _dialog_1 = createDialog "respawn_button_3"}
+if (_time > respawn_button_timer && _d == 0 && no_respawn_points == 4 || all_dead_dialog == 1 && _e == _f && _d == 0 && no_respawn_points == 4 || nearest_teammate_dialog == 1 && _nearest_friend == 1 && _d == 0 && no_respawn_points == 4) then {_d = 1; _dialog_1 = createDialog "respawn_button_4"}
+;if player is revived destroy camera
+?(animationState player != "AmovPpneMstpSnonWnonDnon"): goto "destroy"
+;if AI_unit comes in range reset camera
+?(mission_Over): goto "destroy"
+if (count nearestObjects [_Object,[_can_revive],100] < 2) then {goto "skip"}
+_near_units = nearestObjects [_Object,[_can_revive],100]
+_near_unit = _near_units select 1
+if (!alive _near_unit || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon_healed" || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon") then {_near_unit = _near_units select 2}
+if (!alive _near_unit || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon_healed" || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon") then {_near_unit = _near_units select 3}
+if (!alive _near_unit || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon_healed" || animationState _near_unit  == "AmovPpneMstpSnonWnonDnon") then {_near_unit = _near_units select 4}
+?(alive _near_unit && follow_cam == 1): _c = 0; goto "AI_cam" 
+#skip
+_cam CamSetTarget _Object
+_cam CameraEffect ["INTERNAL","Back"]
+_cam camsetrelpos [0, 5, 1]
+_cam CamCommit 2
+if (_c == 0) then {titleText [format ["Camera following: %1", name player], "PLAIN DOWN"]}
+_c = _c + 1;
+if (_c == 200) then {_c = 0}
+~0.05
+goto "body_cam"
+
+;destroy camera
+#destroy
+closeDialog 1
+closeDialog 2
+closeDialog 3
+closeDialog 4
+titlecut [" ","BLACK IN",2]
+_cam CameraEffect ["Terminate","Back"]
+CamDestroy _cam
+exit

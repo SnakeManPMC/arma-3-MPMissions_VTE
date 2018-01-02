@@ -1,0 +1,20 @@
+; 
+; Script for the spectating script v1.0 by Kegetys <Kegetys@raketti.net> 
+; http://www.ofp.kege.cjb.net
+;
+
+#notalive
+DeathCamIndex = DeathCamIndex + _this
+
+? DeathCamIndex < 0 : DeathCamIndex = (count DeathCamArray)-1
+? DeathCamIndex >= count DeathCamArray : DeathCamIndex = 0
+
+? alive (DeathCamArray select DeathCamIndex) : goto "alive"
+goto "notalive"
+
+
+#alive
+
+ctrlSetText [116969,name vehicle (DeathCamArray select DeathCamIndex)]
+
+DeathCamCurTarget = (DeathCamArray select DeathCamIndex)

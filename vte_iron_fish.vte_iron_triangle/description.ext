@@ -1,0 +1,46 @@
+/*
+
+	VTE Iron Fish
+
+*/
+
+author = "Snake Man, PMC.";
+overviewText = "US Navy SEALs patrol three areas.";
+overviewPicture = "";
+
+respawn = "GROUP";
+respawndelay = 10;
+onLoadMission = "Mission by PMC!";
+OnLoadIntro = "Get Ready!";
+OnLoadIntroTime = true;
+OnLoadMissionTime = true;
+disabledAI = false;
+
+class Header
+{
+	gameType = COOP;
+	minPlayers = 1;
+	maxPlayers = 9;
+	playerCountMultipleOf = 1;
+};
+
+class Params
+{
+// (paramsarray select 0)
+	class TimeOfDay
+	{
+		title = "Time of Day";
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+		texts[] = {"0000","0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300"};
+		default = 8;
+	};
+
+// (paramsarray select 1)
+	class PMC_WeatherSetting
+	{
+		title = "Weather setting";
+		values[] = {1, 2, 3, 4, 5, 6, 7};
+		texts[] = {"Clear skies", "Overcast", "Cloudy", "Rain storm", "Rain storm with fog", "Random (Rainy - Jungles)", "Random (Dry - Deserts)"};
+		default = 6;
+	};
+};

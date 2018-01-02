@@ -1,0 +1,38 @@
+
+_pos = _this select 0;
+_shift = _this select 1;
+_markers = PMC_markers;
+_groups = PMC_groups;
+_ID = [_pos,50,_markers] call compile loadFile "getClickedMarker.sqf";
+
+if (_shift) then { goto "Orders"; };
+
+?_ID == -1: hint "No marker clicked"; exit;
+
+clickedMarker = _markers select _ID;
+selectedGroup = _groups select _ID;
+
+; exit if we clicked opposing sides marker by accident (would be hidden anyway).
+if (side player == west && side leader selectedGroup == east) then { exit; };
+if (side player == east && side leader selectedGroup == west) then { exit; };
+
+;hint format["%1 was clicked, selecting %2",clickedMarker,selectedGroup];
+leader selectedGroup sidechat format ["We are %1 strong and ready for orders, Sir.",count units selectedGroup];
+
+exit
+
+
+;
+; give the move order
+;
+#Orders
+
+A_x = _pos select 0; publicVariable "A_x";
+A_y = _pos select 1; publicVariable "A_y";
+
+dude1 = leader selectedGroup;
+dude1 sidechat format["Moving into position: %1, %2",A_x,A_y];
+
+publicvariable "dude1";
+
+exit

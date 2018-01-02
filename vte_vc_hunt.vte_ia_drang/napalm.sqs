@@ -1,0 +1,26 @@
+;Napalm.sqs by Shogun
+;Modified by LCD to be used with the Airstrike
+;
+;This script is a part of napalm addon. It creates an object called NapalmBomb when the missile hits ground or target. Then it calls burn.sqs and begins another loop.
+
+_bomb = _this select 0
+_FireCenter = _this select 1
+
+
+#LoopStart
+_bpos = getPos _bomb
+~0.001
+
+? (getPos _bomb select 2) < 1 : goto "StopLoop"
+goto "LoopStart"
+
+#StopLoop
+_pommi = "NapalmBomb" createvehicle _bpos
+
+[_FireCenter, _pommi] exec "burn.sqs"
+
+goto "Start"
+
+
+
+

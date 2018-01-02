@@ -1,0 +1,29 @@
+;Script by Mr-Murray and JörgF 2006
+;mr-murray@bossmail.de
+;www.mapfact.net
+;www.mr-murray.de.vu
+
+~Random 2
+_K = _this select 0
+_Z = _this select 1
+_X = Getpos _Z select 0
+_Y = Getpos _Z select 1
+_K DoWatch [_X,_Y,5000]
+_A =_K Ammo "vte_m101"
+~5
+_K fire "vte_m101"
+#Next
+@ _A > _K Ammo "vte_m101"
+~2
+_N = nearestObject [_K,"HeatM119"]
+_X = _X+((Random 60)-40)
+_Y = _Y+((Random 60)-40)
+_H = "Land_VTE_bis_Heli_H" CreateVehicle [_X,_Y]
+~1
+~1
+_N setpos [_X,_Y,0]
+_Bomb="SH_125_HE" CreateVehicle [_X,_Y,0]
+~0.5
+deleteVehicle _H
+
+exit

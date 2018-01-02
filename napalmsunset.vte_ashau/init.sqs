@@ -1,0 +1,18 @@
+setTerrainGrid 50;
+titlecut [" ", "black in", 1]
+titlecut [" ", "black in", 5]
+_cam = "camera" camcreate [0,0,0]
+_cam CameraEffect ["Internal", "back"]
+_cam camsettarget g22
+_cam camsetrelpos [0,0, 200]
+_cam camcommit 0
+@camcommitted _cam
+~5
+TitleText ["N A P A L M    S U N S E T","PLAIN DOWN"]
+~5
+TitleText ["A  M I S S I O N   B Y   [ X D F ]  S O L D I E R  X ","PLAIN DOWN"]
+~5
+titlecut [" ", "black in", 2]
+_cam cameraeffect ["terminate", "back"]
+camdestroy _cam 
+exit

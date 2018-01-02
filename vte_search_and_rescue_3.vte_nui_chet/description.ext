@@ -1,0 +1,45 @@
+author = "Snake Man, PMC.";
+overviewText = "US forces search and rescue downed pilot (player must be the downed pilot!).";
+overviewPicture = "";
+
+// VALUES: 0=None; 1=Bird; 2=Instant; 3=Base; 4=Group; (5=Side Which doesnt work)
+respawn = 4;
+// Time delay in seconds for respawn to occur  (NEVER use 0)
+respawndelay = 1;
+
+onLoadMission = "PMC Search and Rescue 3";
+showGPS = 0;
+showMap = 1;
+showWatch = 1;
+showCompass = 1;
+showNotepad = 1;
+disabledAI = 1;
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 32;
+	playerCountMultipleOf = 1;
+};
+
+class Params
+{
+// (paramsarray select 0)
+	class TimeOfDay
+	{
+		title = "Time of Day";
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+		texts[] = {"0000","0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300"};
+		default = 8;
+	};
+
+// (paramsarray select 1)
+	class PMC_WeatherSetting
+	{
+		title = "Weather setting";
+		values[] = {1, 2, 3, 4, 5, 6};
+		texts[] = {"Clear skies", "Overcast", "Cloudy", "Rain storm", "Rain storm with fog", "Random"};
+		default = 6;
+	};
+};

@@ -1,0 +1,24 @@
+author = "Snake Man, PMC.";
+overviewText = "Help SEALs and Marines defend Plei Me by taking the fight to the gooks in the jungle. Helo support available.";
+overviewPicture = "";
+
+respawn="group";
+
+// Title that appears on screen in briefing
+onLoadIntro=$STRD_Rmissname;
+
+// Title that appears on screen at beginning of mission
+onLoadMission=$STRL_Rload;
+
+class CfgRadio
+{
+	sounds[] = {};
+
+	class Reastdead
+	{
+		name = "Reastdead";
+		sound[] = {"Reastdead.ogg", db+0, 1.0};
+		title = $STRM_Reastdead;
+	};
+
+};

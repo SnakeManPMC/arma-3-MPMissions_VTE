@@ -1,0 +1,54 @@
+
+[] execVM "briefing.sqf";
+
+enableSaving [ false, false ];
+
+PMC_markers=["vcinf1","vcinf2","vcinf3","vcinf4","vcinf5","vcinf6","assault2","assault3"];
+PMC_groups=[vcinf1,vcinf2,vcinf3,vcinf4,vcinf5,vcinf6,assault2,assault3];
+
+CoCMapClickHandlers = [{if (Count _units == 0) then {[_pos, _shift, _alt] exec "markeraction.sqs"; true} else {false}}];
+onMapSingleClick "if (Count _units == 0) then{[_pos, _shift, _alt] exec 'markeraction.sqs';true;}else{false;}";
+
+if (side player == west) then { "vcinf1" setmarkertype "empty"; "vcinf2" setmarkertype "empty"; "vcinf3" setmarkertype "empty"; "vcinf4" setmarkertype "empty"; "vcinf5" setmarkertype "empty"; "vcinf6" setmarkertype "empty"; "nvastart" setmarkertype "empty"; };
+if (side player == east) then { "assault2" setmarkertype "empty"; "assault3" setmarkertype "empty"; "start" setmarkertype "empty"; };
+
+[] exec "markerupdate.sqs";
+if (local Server) then { [] exec "server-mover.sqs"; };
+
+PAPABEAR=[West,"HQ"];
+
+; this is for mission start
+pweather = .5
+pfog = .3
+prain = .0
+publicvariable "pweather";
+publicvariable "pfog";
+publicvariable "prain";
+~.01
+0 setovercast pweather;
+0 setfog pfog;
+0 setrain prain;
+
+; random weather
+pztime = -1;
+if (!local Server) then { goto "WeatherSkipper"; };
+
+pztime = (60*15)
+pweather = random 1
+pfog = .0
+prain = random 1
+~.01
+
+publicvariable "pweather"
+publicvariable "pztime"
+publicvariable "pfog";
+publicvariable "prain";
+~.01
+
+#WeatherSkipper
+~.01
+if (pztime < 0) then { goto "WeatherSkipper"; };
+
+pztime setovercast pweather;
+pztime setfog pfog;
+pztime setrain prain;

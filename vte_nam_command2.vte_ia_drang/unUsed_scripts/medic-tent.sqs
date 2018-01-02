@@ -1,0 +1,18 @@
+
+#Idle
+if (PMC_debug) then { player sidechat format["idling... count: %1, leader: %2",(count units group (list trigbar select 0)),typeof leader (list trigbar select 0)]; };
+~60 + random 60
+
+?(count units group (list trigbar select 0) < 12):goto "CreateSol";
+goto "Idle";
+
+
+#CreateSol
+if (typeof leader (list trigbar select 0) == "VTE_acsoldiermedic") then { goto "Idle"; };
+leader (list trigbar select 0) sidechat "We have just been reinforced. Over.";
+
+#Again
+"VTE_soldierw" createunit [getpos (list trigbar select 0),group (list trigbar select 0),"",0,"private"];
+
+?(count units group (list trigbar select 0) < 12):goto "Again";
+goto "Idle";

@@ -1,0 +1,25 @@
+_RecPos1=_this select 0;
+_leader=_this select 1;
+_cnt=count units group _leader;
+_pos=getPos _leader;
+_type=typeOf _leader;
+?((_type=="VTE_acsoldierWPilot")||(_type=="VTE_acsoldierEPilot")||(_type=="VTE_acsoldierGPilot")):goto "VTE_acsoldierPilot";
+?((_type=="VTE_acsoldierWCrew")||(_type=="VTE_acsoldierECrew")):goto "VTE_acsoldierCrew";
+?((_type=="VTE_acsoldierWSaboteurAssault")||(_type=="VTE_acsoldierWB")||(_type=="VTE_acsoldierGB")):goto "VTE_acsoldierGeneric";
+?((_type=="SoldierESaboteurAssault")||(_type=="VTE_NVAsoldier")||(_type=="VTE_NVAsoldier")):goto "SoldierGeneric";
+exit
+#VTE_acsoldierPilot
+?(_cnt>1):hint "you already have a gunner";exit;
+_type createUnit [_pos, group _leader,"this addweapon ""NVGoggles"";", 0.85, "private"];
+hint (_type + " created");
+exit;
+#VTE_acsoldierCrew
+?(_cnt>5):hint "you already have 5 crewmen";exit;
+_type createUnit [_pos, group _leader,"this addweapon ""NVGoggles"";", 0.85, "private"];
+hint (_type + " created");
+exit;
+#VTE_acsoldierGeneric
+?(_cnt>19):hint "you already have 20 troops";exit;
+_type createUnit [_pos, group _leader,"this addweapon ""NVGoggles"";", 0.85, "private"];
+hint (_type + " created");
+exit;

@@ -1,0 +1,11 @@
+;zEvac.sqs
+#loop
+~10
+_totcnt=0;
+_lt=list to1;_clt=count _lt;_totcnt=_totcnt+_clt;
+?(_clt<1):"mzA" setMarkerColor "ColorBlue";
+?(_clt>0):"mzA" setMarkerColor "ColorRed";
+?((_clt<20)&&(count _lt>0)):{_x doMove getMarkerPos "mEvacZoneA";} forEach _lt;"mZA_dude" setMarkerPos (getPos (_lt select 0));
+?(_clt==0):"mZA_dude" setMarkerPos [0,0,0];
+?( (end1 || end2) ):exit;
+goto "loop";

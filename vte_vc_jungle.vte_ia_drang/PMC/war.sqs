@@ -1,0 +1,150 @@
+
+VCNum=80;
+_LoopWait=10;
+
+TotalEastorig = (count eastlist);
+_CreatorEast = 0;
+
+#CreatorINIT
+_CreatorEast=(count eastlist);
+
+#CreatorStart
+
+_ran=0;
+_ran=random(1);
+
+e2=objnull;
+
+"VTE_vcofficer" createunit [getpos EastInfStart, groupCharlie, "e2 = this", _ran, "SERGEANT"];
+[e2] join grpnull;
+_vc1 = group e2;
+
+_A=1;
+_B=random(11);
+
+#GroupLoop
+_A=_A+1;
+_ran=0;
+_ran=random(1);
+
+"VTE_vcsoldier" createunit [getpos EastInfStart, groupCharlie, "e1 = this", _ran, "CORPORAL"];
+[e1] join grpnull;
+[e1] join _vc1;
+
+if (_A < _B) then { goto "GroupLoop"; };
+
+;hint format["Created: %1\ngroup: %2\n%3",_B,_B+1,(count eastlist)];
+;~.5
+
+
+
+
+; NVA
+e2=objnull;
+
+_ran=0;
+_ran=random(1);
+
+"VTE_nvaofficer" createunit [getpos EastStart, groupDelta, "e2 = this", _ran, "SERGEANT"];
+[e2] join grpnull;
+_vc1 = group e2;
+
+_A=1;
+_B=random(11);
+
+#GroupLoop2
+_A=_A+1;
+_ran=0;
+_ran=random(1);
+
+"VTE_nvasoldier" createunit [getpos EastStart, groupCharlie, "e1 = this", _ran, "CORPORAL"];
+[e1] join grpnull;
+[e1] join _vc1;
+
+if (_A < _B) then { goto "GroupLoop2"; };
+
+;hint format["Created: %1\ngroup: %2\n%3",_B,_B+1,(count eastlist)];
+;~.5
+
+
+
+
+if (count eastlist < VCNum) then { goto "CreatorStart"; };
+
+
+
+
+
+_CreatorEast = ((count eastlist) - _CreatorEast);
+
+TotalEastorig = TotalEastorig + _CreatorEast;
+
+;hint format["_creatoreast: %1\nAll: %2\nOrig: %3",_CreatorEast,(count eastlist),TotalEastorig];
+;~1
+
+
+
+
+;------------------------------------------------------------------------------------------------
+#idle
+
+_masterlist = [];
+_masterlist = eastlist;
+
+_cc=0;
+_cclimit = 0;
+_cclimit = (count _masterlist)-1;
+
+#cloop
+groupE1=group (_masterlist select _cc);
+
+if (("unitready _x" count units groupE1)==(count units groupE1)) then {goto "atvillage"};
+
+#carryon
+_cc=_cc + 1;
+?(_cc > _cclimit):goto "endcycle2";
+goto "cloop";
+
+#atvillage
+[] exec "random-pos-sebnam.sqs";
+~.01;
+@!MovePosScriptRunning;
+
+;hint format["%1\n\n%2",(leader groupE1),move_pos];
+;~.5
+
+[groupE1,0] setwppos move_pos;
+
+"_x domove getwppos [groupE1,0] " foreach units groupE1;
+units groupE1 Commandmove move_pos;
+goto "carryon";
+
+#endcycle2
+
+
+
+
+TotalEastCount = TotalEastorig - (count eastlist);
+
+;hint format["waiting %1 sec...\nvc kills: %2\norig: %3",_LoopWait,TotalEastCount,TotalEastorig];
+
+~_LoopWait;
+
+_CreatorEast = 0;
+
+if (TotalEastCount > 199) then { goto "Ending"; };
+if (count eastlist < VCNum) then { goto "CreatorINIT"; } else { goto "idle"; };
+
+
+#Ending
+
+leader assault1 sideradio "Reastdead";
+~15;
+
+PAPABEAR sideradio "Rmcomplete";
+~5;
+
+mcomplete=true;
+hint "Get close to the US HQ base field hospital to complete the mission.";
+
+exit;

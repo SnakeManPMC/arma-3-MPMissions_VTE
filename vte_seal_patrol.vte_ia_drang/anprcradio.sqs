@@ -1,0 +1,22 @@
+; SEAL PATROL
+; SEB NAM Mission
+; by Nagual 2002
+
+; radio1 = this addEventHandler ["Fired", {_this exec "anprcradio.sqs"}]
+hint "done1"
+_weap1 = _this select 1
+_weap2 = _this select 2
+_weap3 = _this select 3
+_weap4 = _this select 4
+? _weap1 == "VTE_prc25" : goto "radio"
+? _weap2 == "VTE_prc25" : goto "radio"
+? _weap3 == "VTE_prc25" : goto "radio"
+? _weap4 == "VTE_prc25" : goto "radio"
+? _weap4 == "VTE_typ63" : goto "radio"
+exit
+#radio
+hint "done"
+
+
+exit
+[player, "objective2"] exec "mh47e.sqs"

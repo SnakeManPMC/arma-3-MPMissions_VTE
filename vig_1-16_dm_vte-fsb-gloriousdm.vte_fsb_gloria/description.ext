@@ -1,0 +1,27 @@
+author = "Vigilante";
+overviewText = "Death match (original mission by Celery).";
+overviewPicture = "";
+
+respawn=3;
+respawndelay=1;
+
+onLoadMission="Vigilante's >> 1-16 DM 'VTE - FSB GloriousDeathmatch' (DM Ranch) <<";
+
+titleParam1 = $STRD_08;
+valuesParam1[] = {10000, 300, 600, 900, 1200, 1500, 1800, 2700, 3600, 7200, 1, 5, 10, 15, 20, 25, 30, 50, 100, 150, 200};
+defValueParam1 = 25;
+textsParam1[] = {$STRD_12, $STRD_T005, $STRD_T010, $STRD_T015, $STRD_T020, $STRD_T025, $STRD_T030, $STRD_T045, $STRD_T060, $STRD_T120, "1 kill", "5 kills", "10 kills", "15 kills", "20 kills", "25 kills", "30 kills", "50 kills", "100 kills", "150 kills", "200 kills"};
+titleParam2 = "Weapon choice";
+valuesParam2[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+defValueParam2 = "20";
+textsParam2[] = {"AK47","Sten","Thompson","XM177e","Mosin38","M14","Garand","M3A1","Ithaca","M79","Stoner MG","M60 Shorty","Enfield4","RPG2","DP27","RPD","PPD40","Random, light","Random, heavy","Random, all"};
+
+disabledAI=0;
+
+class Header
+{
+	gameType = TDM;
+	minPlayers = 1;
+	maxPlayers = 16;
+	playerCountMultipleOf = 1;
+};

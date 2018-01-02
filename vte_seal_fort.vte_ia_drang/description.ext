@@ -1,0 +1,81 @@
+author = "Snake Man, PMC.";
+overviewText = "US Navy SEALs at Plei Me SF base. Player as High Command.";
+overviewPicture = "";
+
+respawn="group";
+
+// Title that appears on screen in briefing
+onLoadIntro=$STRD_Rmissname;
+
+// Title that appears on screen at beginning of mission
+onLoadMission=$STRL_Rload;
+
+class Header
+{
+	gameType = Team;
+	minPlayers = 1;
+	maxPlayers = 18;
+	playerCountMultipleOf = 1;
+};
+
+class CfgRadio
+{
+	sounds[] = {};
+
+	class Rhello
+	{
+		name = "Rhello";
+		sound[] = {"Rhello.ogg", db+0, 1.0};
+		title = $STRM_Rhello;
+	};
+
+};
+/*
+class weapons
+{
+	class Binocular 	{count = 12;};
+	class VTE_90mmrecoiless	{count = 10;};
+	class VTE_Browning	{count = 20;};
+	class VTE_xm177e 	{count = 20;};
+	class VTE_CAR15gl 	{count = 20;};
+	class VTE_flaregun	{count = 20;};
+	class VTE_GreaseGun	{count = 20;};
+	class VTE_law	{count = 20;};
+	class VTE_m14		{count = 20;};
+	class VTE_M16A1 	{count = 20;};
+	class VTE_m21 		{count = 20;};
+	class VTE_m39hp		{count = 20;};
+	class VTE_m60 	{count = 20;};
+	class VTE_m60s		{count = 20;};
+	class VTE_stoner_mg	{count = 20;};
+	class VTE_m79		{count = 10;};
+	class VTE_RPG7 {count = 20;};
+};
+class Magazines
+{
+	class handgrenade	{count = 50;};
+	class mine	        {count = 50;};
+	class Pipebomb	        {count = 25;};
+	class Timebomb          {count = 25;};
+	class VTE_100Rnd_556x45	{count = 50;};
+	class VTE_100Rnd_762x51_M60 {count = 50;};
+	class VTE_20Rnd_556x45	{count = 50;};
+	class VTE_20Rnd_762x51_nato 	{count = 50;};
+	class VTE_25Rnd_45ACP	{count = 50;};
+	class VTE_25Rnd_45ACPSD	{count = 50;};
+	class VTE_30Rnd_762x39_AK47 	{count = 50;};
+	class VTE_30Rnd_40mm_AmmoBag	{count = 50;};
+	class VTE_1Rnd_40mm_HE	{count = 50;};
+	class VTE_5Rnd_762x51_nato	{count = 50;};
+	class VTE_7Rnd_1911	{count = 50;};
+	//not included in VTE v1.5
+	//class VTE_8Rnd_45ACPSD	{count = 50;};
+	class VTE_90mmrocket	{count = 10;};
+	class VTE_10Rnd_Browning	{count = 50;};
+	class VTE_FlareGreen_Rifle	{count = 25;};
+	class VTE_FlareRed_Rifle     	{count = 25;};
+	class VTE_FlareWhite_Rifle   	{count = 25;};
+	class VTE_FlareYellow_Rifle	{count = 25;};
+	class VTE_m72	{count = 50;};
+};
+*/

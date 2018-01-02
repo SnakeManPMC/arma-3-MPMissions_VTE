@@ -1,0 +1,24 @@
+; ****************************************************************
+; Script file for Armed Assault
+; Created by: TODO: Author Name
+; ****************************************************************
+;/// addto init line of Unit []exec"rearm.sqs"
+;//// rearm.sqs;
+
+#start
+~20
+@(! alive player)
+
+_weapons = weapons player 
+
+_magazines = magazines player
+
+@(alive player)
+
+removeallweapons player
+
+{player addMagazine _x}forEach _magazines 
+
+{player addWeapon _x}forEach _weapons
+
+goto "start"

@@ -1,0 +1,18 @@
+;Script & Idea by Mr-Murray 2006
+;mr-murray@bossmail.de
+;www.mapfact.net
+
+setfire=true
+titletext ["Click on the map to set your Target Area","plain down"]
+onMapSingleClick "ATarget setpos _pos;setfire=false"
+
+@!setfire
+[] exec "westari\ari.sqs"
+"Firepoint" setmarkerpos getpos ATarget
+anz_fire=true
+publicvariable "anz_fire"
+publicvariable "ATarget"
+onMapSingleClick ""
+titletext ["","plain down"]
+
+exit

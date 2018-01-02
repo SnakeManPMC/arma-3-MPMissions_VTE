@@ -1,0 +1,14 @@
+; init.sqs
+setTerrainGrid 6.25;
+setViewDistance 1000;
+hint "**View Set 1000m**\n\n**Terrain Set High**";
+[] exec "Rearm.sqs";
+[] exec "zEvac.sqs";
+end1=false;
+end2=false;
+bSupp1=False;
+titleCut ["","BLACK IN", 3];
+?(!local server):exit;
+onPlayerConnected "publicVariable ""end1"""
+onPlayerConnected "publicVariable ""end2"""
+~1

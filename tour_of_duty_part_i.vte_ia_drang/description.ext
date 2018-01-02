@@ -1,0 +1,78 @@
+author = "]ntruder";
+overviewText = "Destroy mortar positions.";
+overviewPicture = "";
+
+Respawn = "BASE";
+RespawnDelay = 6;
+RespawnDialog = 0;
+#include "R3F_revive\dlg_attente_reanimation.h"
+
+OnLoadMission = "CO10 Tour of Duty 0.93 - Prepare for briefing...";
+OnLoadIntro = "";
+OnLoadIntroTime = False;
+OnLoadMissionTime = True;
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 10;
+	playerCountMultipleOf = 1;
+};
+
+ShowGPS = 0;
+debriefing = 1;
+showCompass = 1;
+showMap = 1;
+showPad = 1;
+showWatch = 1;
+briefing = 1;
+
+class CfgIdentities
+{
+    class w1_id
+    {
+        name = "Barnes";
+        face = "Face01_camo2";
+        glasses = "None";
+        speaker = "Male01";
+        pitch = 1.0;
+    };
+    class w2_id
+    {
+        name = "Bunny";
+        face = "Face02_camo4";
+        glasses = "None";
+        speaker = "Male02";
+        pitch = 1.1;
+    };
+    class w3_id
+    {
+        name = "Elias";
+        face = "Face03_camo4";
+        glasses = "None";
+        speaker = "Male03";
+        pitch = 1.0;
+    };
+    class pil1_id
+    {
+        name = "Gordon";
+        face = "Face06";
+        glasses = "SunGlasses";
+        speaker = "Male04";
+        pitch = 1.1;
+    };
+    class pil2_id
+    {
+        name = "Goose";
+        face = "Face07";
+        glasses = "SunGlasses";
+        speaker = "Male05";
+        pitch = 1.0;
+    };
+};
+
+// ============================================================================================
+
+
+// ============================================================================================

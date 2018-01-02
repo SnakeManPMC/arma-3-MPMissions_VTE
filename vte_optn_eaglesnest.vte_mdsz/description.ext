@@ -1,0 +1,45 @@
+author = "Unknown";
+overviewText = "US forces destroy ammo store and capture HQ.";
+overviewPicture = "";
+
+
+class Header{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 10;};
+class cfgSounds 
+{
+	sounds[] =
+	{
+		click,click2
+	};
+	class click
+      {
+	      name="click";
+	      sound[]= {"click.ogg", 1, 0.3};
+	      titles[] ={      };
+      };
+      class click2
+      {
+	      name="click2";
+	      sound[]= {"click2.ogg", 1, 0.3};
+	      titles[] ={      };
+       };
+       
+       
+};
+
+disabledAI=1;
+debriefing=0;
+showWatch=1;
+showCompass=1;
+showNotepad=1;
+showGPS=1;
+showMap=1;
+showRadio=0;
+respawn="BASE";
+respawnDelay=10;
+
+//onLoadIntro = "whatever";
+onLoadMission = "Operation Eagles Nest";
+OnLoadMissionTime = False;

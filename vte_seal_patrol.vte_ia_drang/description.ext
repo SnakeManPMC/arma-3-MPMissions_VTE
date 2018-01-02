@@ -1,0 +1,626 @@
+author = "Naqual, 2002";
+overviewText = "US Navy SEALs ambush and kill NVA infantry convoy.";
+overviewPicture = "";
+
+// SEAL PATROL
+// SEB NAM Mission
+// by Nagual 2002
+// Description EXT
+
+onLoadMission = "SEAL PATROL";
+onLoadIntro = "SEAL PATROL";
+onLoadIntroTime = false;
+onLoadMissionTime = false;
+showCompass = 1;
+showGPS = 1;
+showMap = 1;
+showNotepad = 1;
+showWatch = 1;
+debriefing = 1;
+respawn = 4;
+respawndelay = 4;
+disabledAI = 0;
+minScore = 401;
+avgScore = 1000;
+maxScore = 5000;
+
+/* PMCTODO 12-23-17
+class weapons
+{
+// Suppressed
+// Assualt
+	class VTE_M16a1
+	{
+		count = 25;
+	};
+	class VTE_m14
+	{
+		count = 25;
+	};
+
+	class VTE_xm177e
+	{
+		count = 25;
+	};
+// Scoped Assault
+// Grenade Launchers
+	class VTE_m79
+	{
+		count = 25;
+	};
+	class VTE_car15gl
+	{
+		count = 25;
+	};
+// MachineGuns
+	class VTE_m60
+	{
+		count = 25;
+	};
+	class VTE_M60s
+	{
+		count = 25;
+	};
+	class VTE_stoner_mg
+	{
+		count = 25;
+	};
+	class VTE_m45
+	{
+		count = 25;
+	};
+	class VTE_m3a1
+	{
+		count = 25;
+	};
+	class VTE_m3sd
+	{
+		count = 25;
+	};
+// Sniper Rifles
+	class VTE_m21
+	{
+		count = 25;
+	};
+// Shotguns
+	class VTE_ithaca
+	{
+		count = 25;
+	};
+// Light Anti Tank
+// Anti Tank
+	class VTE_law
+	{
+		count = 25;
+	};
+// Anti Air
+// SideArms
+	class VTE_m1911
+	{
+		count = 25;
+	};
+	class VTE_m39hp
+	{
+		count = 25;
+	};
+	class VTE_flaregun
+	{
+		count = 25;
+	};
+// Equipment
+	class Binocular
+	{
+		count = 25;
+	};
+	class NVGoggles
+	{
+		count = 25;
+	};
+	class VTE_prc25
+	{
+		count = 25;
+	};
+};
+
+
+// Ammo for weapons defined, same as weapons
+class Magazines
+{
+// Suppressed Mags
+// Assualt Mags
+	class VTE_20Rnd_556x45
+	{
+		count = 50;
+	};
+	class VTE_20Rnd_762x51_nato
+	{
+		count = 50;
+	};
+	
+// Scoped Assault Mags
+// Explosive Mags
+	class VTE_40mm_HE
+	{
+		count = 50;
+	};
+	class VTE_40mm_Buckshot
+	{
+		count = 50;
+	};
+	class VTE_40mm_AmmoBag
+	{
+		count = 25;
+	};
+// MachineGuns Mags
+	
+	class VTE_100Rnd_762x51_M60
+	{
+		count = 50;
+	};
+	class VTE_100Rnd_556x45_M23 
+	{
+		count = 50;
+	};
+	class VTE_36Rnd_M45 
+	{
+		count = 50;
+	};
+	class VTE_25Rnd_45ACP
+	{
+		count = 50;
+	};
+	class VTE_25Rnd_45ACPSD
+	{
+		count = 50;
+	};
+// Sniper Rifle Mags
+// Shotgun Mags
+	class VTE_ithacashell
+	{
+		count = 50;
+	};
+// Light Anti Tank Rounds
+// Anti Tank Rounds
+	class VTE_m72
+	{
+		count = 50;
+	};
+// Anti Air Missiles
+// Smoke Shells
+	class VTE_grenadewhite
+	{
+		count = 25;
+	};
+	class VTE_grenadeRed
+	{
+		count = 25;
+	};
+	class VTE_grenadeGreen
+	{
+		count = 25;
+	};
+	class VTE_grenadeYellow
+	{
+		count = 25;
+	};
+	class VTE_grenadePurple
+	{
+		count = 25;
+	};
+// Explosives and Charges
+	class Pipebomb
+	{
+		count = 25;
+	};
+	class Timebomb
+	{
+		count = 25;
+	};
+// SideArm Clips
+	class VTE_7Rnd_1911
+	{
+		count = 50;
+	};
+	class VTE_8Rnd_45ACPSD
+	{
+		count = 50;
+	};
+	class VTE_FlareWhite_Rifle
+	{
+		count = 25;
+	};
+	class VTE_FlareRed_Rifle
+	{
+		count = 25;
+	};
+	class VTE_FlareGreen_Rifle
+	{
+		count = 25;
+	};
+	class VTE_FlareYellow_Rifle
+	{
+		count = 25;
+	};
+// Addons
+};
+*/
+
+// Control types
+#define CT_STATIC						0
+#define CT_BUTTON						1
+#define CT_EDIT							2
+#define CT_SLIDER						3
+#define CT_COMBO						4
+#define CT_LISTBOX					5
+#define CT_TOOLBOX					6
+#define CT_CHECKBOXES				7
+#define CT_PROGRESS					8
+#define CT_HTML							9
+#define CT_STATIC_SKEW			10
+#define CT_ACTIVETEXT				11
+#define CT_TREE							12
+#define CT_3DSTATIC					20
+#define CT_3DACTIVETEXT			21
+#define CT_3DLISTBOX				22
+#define CT_3DHTML						23
+#define CT_3DSLIDER					24
+#define CT_3DEDIT						25
+#define CT_OBJECT						80
+#define CT_OBJECT_ZOOM			81
+#define CT_OBJECT_CONTAINER	82
+#define CT_OBJECT_CONT_ANIM	83
+#define CT_USER							99
+
+// Static styles
+#define ST_HPOS						0x0F
+#define ST_LEFT						0
+#define ST_RIGHT					1
+#define ST_CENTER					2
+#define ST_UP							3
+#define ST_DOWN						4
+#define ST_VCENTER				5
+
+#define ST_TYPE						0xF0
+#define ST_SINGLE					0
+#define ST_MULTI					16
+#define ST_TITLE_BAR			32
+#define ST_PICTURE				48
+#define ST_FRAME					64
+#define ST_BACKGROUND			80
+#define ST_GROUP_BOX			96
+#define ST_GROUP_BOX2			112
+#define ST_HUD_BACKGROUND	128
+#define ST_TILE_PICTURE		144
+#define ST_WITH_RECT			160
+#define ST_LINE						176
+
+#define ST_SHADOW					256
+#define ST_NO_RECT				512
+
+#define ST_TITLE					ST_TITLE_BAR + ST_CENTER
+
+// Predefined controls
+#define IDC_OK						1
+#define IDC_CANCEL				2
+
+// Colors
+#define TextColor			0.08, 0.08, 0.12
+#define InvTextColor	0.35, 0.38, 0.36
+
+// Fonts
+#define FontS "tahomaB24"
+#define FontM "tahomaB36"
+
+#define FontHTML "courierNewB64"
+#define FontHTMLBold "courierNewB64"
+#define FontMAP "courierNewB64"
+#define FontMAIN "SteelfishB64"
+#define FontMAINCZ "SteelfishB64CE"
+#define FontTITLE "SteelfishB128"
+#define FontTITLEHalf "SteelfishB64"
+#define FontBOOK "garamond64"
+#define FontNOTES "AudreysHandI48"
+
+class RscPicture
+{
+	type = CT_STATIC;
+	idc = -1;
+	style = ST_PICTURE;
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {1, 1, 1, 1};
+	font = FontS;
+	size = 0;
+};
+
+class RscText
+{
+	type = CT_STATIC;
+	idc = -1;
+	style = ST_LEFT;
+	h = 0.04; 
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {TextColor, 0.75};
+  font = FontS;
+	sizeEx = 0.02;
+};
+
+class RscActiveText
+{
+	type = CT_ACTIVETEXT;
+	style = ST_LEFT;
+	color[] = {0, 0, 0, 1};
+	colorActive[] = {1, 1, 1, 1};
+  font = FontMAIN;
+	sizeEx = 0.05;
+	soundEnter[] = {"ui\ui_over", 0.2, 1};
+	soundPush[] = {, 0.2, 1};
+	soundClick[] = {"ui\ui_ok", 0.2, 1};
+	soundEscape[] = {"ui\ui_cc", 0.2, 1};
+	default = false;
+};
+
+class RscActiveMenu : RscActiveText
+{
+	color[] = {1, 1, 1, 1};
+	colorActive[] = {1, 0, 0, 1};
+	font = FontTITLEHalf;
+	sizeEx = 0.05;
+	default = false;
+};
+
+class RscObject
+{
+	type = CT_OBJECT;
+	scale = 1.0;
+	direction[] = {0, 0, 1};
+	up[] = {0, 1, 0};
+};
+
+class RscObjNotebookListBox
+{
+	type = CT_3DLISTBOX;
+	style = 0;
+	selection = "display";
+	angle = 0;
+	size = 0.8;	// 3D size
+	colorSelect[] = {0, 1, 0, 1};
+	colorSelectBackground[] = {0, 1, 0, 0.2};
+	colorText[] = {0, 1, 0, 0.5};
+	font = FontHTML;
+};
+
+// -----------------------------
+// Your own classes will be here
+// -----------------------------
+
+class RscTitles
+{
+	titles[] = 
+	{
+		
+	};
+	class start
+	{
+		
+		idd=-1;
+		movingEnable=0;
+		duration=3;
+		fadein=3; 
+		name="start";
+
+		controls[]={"splash1"};
+
+		class splash1: RscPicture
+		{
+			style=48; 
+			text="c_nam_sealpatrol.paa";
+			colorBackground[]={0,0,0,1};
+			// across screen
+	  	  	x=.250;
+			// up screen
+			y=0.270000;
+			// pic width
+			w=.5;
+			// pic height
+			h=0.400000;
+			};
+
+		};
+};
+
+class RscHTML{};
+
+class DlgSpectateDeath
+{
+	idd = 821151551;
+	movingEnable = false;
+	controlsBackground[]=
+	{
+		Background4,
+		Background5,
+		BackgroundMenu		
+	};
+	class Background4 : RscText
+	{
+		x = 0.0;
+		y = 0.0;
+		w = 1;
+		h = 0.065;
+		text = ;
+		colorBackground[] = {0, 0, 0, 1};
+	};
+	class Background5 : RscText
+	{
+		x = 0.0;
+		y = 0.935;
+		w = 1;
+		h = 0.065;
+		text = ;
+		colorBackground[] = {0, 0, 0, 1};
+	};
+	class BackgroundMenu : RscText
+	{
+		idc = 1046006;
+		x = 0.02;
+		y = 0.065;
+		w = 0.15;
+		h = 0.2;
+		text = ;
+		colorBackground[] = {0, 0, 0, 0.5};
+	};	
+
+	controls[]=
+	{
+		Title,
+		ButtonPREV,
+		ButtonNEXT,
+		Spectation,
+		PlrName,
+		menu,
+		menu2,
+		MenuItem1,
+		MenuItem2,
+		MenuItem3,
+		MenuItem4,
+		MenuItem5
+		
+	};
+	class Title : RscText
+	{
+		idc = -1;
+		style = ST_CENTER;
+		x = 0.2;
+		y = -0.015;
+		w = 0.6;
+		h = 0.1;
+		font = FontTITLEHalf;
+		colorText[] = {1, 0, 0, 1};
+		sizeEx = 0.048;
+		text = "YOU ARE DEAD";
+	};
+
+	class ButtonNEXT : RscActiveMenu
+	{
+		idc = -1;
+		x = 0.90;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;		
+		text = "Next >>";
+		default = 0;
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "1 exec ""nextCam.sqs""";
+	};	
+		
+	class ButtonPREV : RscActiveMenu
+	{
+		idc = -1;
+		x = 0.55;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;		
+		text = "<< Previous";
+		default = 0;
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "-1 exec ""nextCam.sqs""";
+	};
+
+	
+	class Spectation : RscText
+	{
+		idc = -1;
+		style = ST_CENTER;
+		x = 0.70;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;
+		font = FontTITLEHalf;
+		colorText[] = {1, 0, 0, 1};
+		sizeEx = 0.05;
+		text = "- Spectating -";		
+	};	
+
+	class PlrName : RscText
+	{
+		idc = 116969;
+		style = ST_CENTER;
+		x = 0.10;
+		y = 0.94;
+		w = 0.15;
+		h = 0.05;
+		font = FontTITLEHalf;
+		colorText[] = {1, 0, 0, 1};
+		sizeEx = 0.05;
+		text = "Unknown";		
+	};	
+			
+	class Menu : RscActiveMenu
+	{
+		idc = 1046007;
+		x = 0.03;
+		y = 0.02;
+		w = 0.15;
+		h = 0.025;
+		text = "Toggle menu";
+		default = 0;
+		angle = 90;
+		colorActive[] = {0.4, 0.8, 1, 1};		
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "ctrlShow [1046001,false];ctrlShow [1046002,false];ctrlShow [1046003,false];ctrlShow [1046004,false];ctrlShow [1046005,false];ctrlShow [1046006,false];ctrlShow [1046007,false];ctrlShow [1046008,true]";
+		sizeEx = 0.028;
+	};	
+	
+	class Menu2 : Menu
+	{
+		idc = 1046008;
+		color[] = {1.0, 1.0, 1.0, 0.4};
+		colorActive[] = {0.3, 0.5, 1, 1};
+		action = "ctrlShow [1046001,true];ctrlShow [1046002,true];ctrlShow [1046003,true];ctrlShow [1046004,true];ctrlShow [1046005,true];ctrlShow [1046006,true];ctrlShow [1046007,true];ctrlShow [1046008,false]";
+	};		
+	
+	class MenuItem1 : RscActiveMenu
+	{
+		idc = 1046001;
+		x = 0.03;
+		y = 0.08;
+		w = 0.08;
+		h = 0.025;
+		text = "Close View";
+		default = 0;
+		angle = 90;
+		colorText[] = {1, 1, 1, 0.6};
+		colorActive[] = {0.3, 0.5, 1, 1};		
+		soundClick[] = {"ui\ui_ok", 0.2, 1};
+		action = "DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamComSpeed = 0.4;DeathCamRelPos = [0,-2,0.3];DeathCamTarHeight = 1.7;DeathCamCineViewSpecial = 0;";
+		sizeEx = 0.028;
+	};		
+	
+	class MenuItem2 : MenuItem1
+	{
+		idc = 1046002;
+		y = 0.11;
+		text = "Far View";		
+		action = "DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamComSpeed = 1.9;DeathCamRelPos = [0,-8,2.5];DeathCamTarHeight = 1.5;DeathCamCineViewSpecial = 0;";
+	}
+	class MenuItem3 : MenuItem1
+	{
+		idc = 1046003;
+		y = 0.14;		
+		text = "Back View";		
+		action = "DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamComSpeed = 0.1;DeathCamRelPos = [0,4.0,0.02];DeathCamTarHeight = 1.7;DeathCamCineViewSpecial = 0;";
+	}	
+	class MenuItem4 : MenuItem1
+	{
+		idc = 1046004;
+		y = 0.17;
+		text = "Top View";		
+		action = "DeathCam camSetTarget [0,0,-99999999.99];DeathCamComSpeed = 0.05;DeathCamRelPos = [0,0.1,50.0];DeathCamTarHeight = 1.7;DeathCamCineViewSpecial = 2;";
+	}		
+	class MenuItem5 : MenuItem1
+	{
+		idc = 1046005;
+		y = 0.20;
+		text = "Cinematic View";
+		action = "DeathCam camSetTarget vehicle DeathCamCurCamTarget;DeathCamRelPos = [3,70.1,10.0];DeathCam camSetRelPos DeathCamRelPos;DeathCamComSpeed = 0;DeathCamCineViewSpecial = 1;";
+	}		
+};
