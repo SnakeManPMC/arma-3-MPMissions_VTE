@@ -1,0 +1,1 @@
+[] execVM "init.sqf";
