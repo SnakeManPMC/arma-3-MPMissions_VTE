@@ -89,14 +89,14 @@ switch (side player) do
 	};
 };
 /*
-<p><a name = "OBJ_1'></marker>Clear the objective 1
-<p><a name = "OBJ_2'></marker>Clear the objective 2
-<p><a name = "OBJ_3'></marker>Clear the objective 3
-<p><a name = "OBJ_4'></marker>Clear the objective 4
-<p><a name = "OBJ_5'></marker>Clear the objective 5
-<p><a name = "OBJ_6'></marker>Clear the objective 6
-<p><a name = "OBJ_7'></marker>Clear the objective 7
-<p><a name = "OBJ_8'></marker>Clear the objective 8
-<p><a name = "OBJ_9'></marker>Clear the objective 9
-<p><a name = "OBJ_10'></marker>Clear the objective 10
+<a name = "OBJ_1'></marker>Clear the objective 1
+<a name = "OBJ_2'></marker>Clear the objective 2
+<a name = "OBJ_3'></marker>Clear the objective 3
+<a name = "OBJ_4'></marker>Clear the objective 4
+<a name = "OBJ_5'></marker>Clear the objective 5
+<a name = "OBJ_6'></marker>Clear the objective 6
+<a name = "OBJ_7'></marker>Clear the objective 7
+<a name = "OBJ_8'></marker>Clear the objective 8
+<a name = "OBJ_9'></marker>Clear the objective 9
+<a name = "OBJ_10'></marker>Clear the objective 10
 */

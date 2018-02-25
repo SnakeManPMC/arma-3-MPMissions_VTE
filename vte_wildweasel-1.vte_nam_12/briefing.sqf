@@ -83,8 +83,8 @@ SAM <marker name='target4'>site 4</marker>
 	};
 };
 /*
-<p><a name = "OBJ_1'></marker>Destroy SAM site 1
-<p><a name = "OBJ_2'></marker>Destroy SAM site 2
-<p><a name = "OBJ_3'></marker>Destroy SAM site 3
-<p><a name = "OBJ_4'></marker>Destroy SAM site 4
+<a name = "OBJ_1'></marker>Destroy SAM site 1
+<a name = "OBJ_2'></marker>Destroy SAM site 2
+<a name = "OBJ_3'></marker>Destroy SAM site 3
+<a name = "OBJ_4'></marker>Destroy SAM site 4
 */
