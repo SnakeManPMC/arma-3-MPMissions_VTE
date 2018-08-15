@@ -6,6 +6,9 @@
 */
 private ["_respawnpoint","_waypointRanPosit","_PMC_maxunits","_MaxBLUFOR","_MaxOPFOR","_targetPoint"];
 
+PMC_NVA_Attack_Running = false;
+publicVariable "PMC_NVA_Attack_Running";
+
 // select target location
 //_targetNum = count PMC_targets;
 //_PMC_temptargets = [];

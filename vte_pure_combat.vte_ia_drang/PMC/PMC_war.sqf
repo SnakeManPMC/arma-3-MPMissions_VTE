@@ -7,6 +7,9 @@
 
 private ["_respawnpoint","_waypointRanPosit","_PMC_maxunits","_MaxBLUFOR","_MaxOPFOR","_targetPoint"];
 
+PMC_NVA_Attack_Running = false;
+publicVariable "PMC_NVA_Attack_Running";
+
 _waypointRanPosit = 100;
 
 [usinf1] execVM "PMC\PMC_send_editor_group.sqf";
