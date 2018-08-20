@@ -120,13 +120,26 @@ if ((alive leader _HeloGrp) && (canMove _vcl)) then
 // little breathing room for landing...
 sleep 5;
 
+// small 500m hop to the east direction so we would avoid collisions with other helos in the vicinity
+private _tempHeloWPPosit = [(getPosASL _vcl select 0) + 250 + (random 250), (getPosASL _vcl select 1), 0];
+leader _HeloGrp sideChat format["This is %1, moving to depart waypoint %2 now. Out.", leader _HeloGrp, _tempHeloWPPosit];
+_vcl move _tempHeloWPPosit;
+sleep 5;
+
+// lets wait until his within 150m of _tempHeloWPPosit, or helo is dead.
+waitUntil
+{
+	sleep 2;
+	( ( (unitReady _vcl) || (_vcl distance _tempHeloWPPosit) < 150) || !(canMove _vcl) );
+};
+
 // order him to move back into HQ
 _vcl move _rtb;
 
 // small wait
 sleep 3;
 
-// lets wait until his within 100m of HQ, or helo is dead.
+// lets wait until his within 200m of HQ, or helo is dead.
 waitUntil
 {
 	sleep 2;
