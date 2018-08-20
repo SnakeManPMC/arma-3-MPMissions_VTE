@@ -117,7 +117,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="VTE Pure Combat v1.2.5";
+		briefingName="VTE Pure Combat v1.2.6";
 		startWeather=0.12;
 		startWind=0.1;
 		forecastWeather=0.30000001;
@@ -566,6 +566,7 @@ class Mission
 			};
 			id=29;
 			type="VTE_WeaponBoxUS";
+			atlOffset=-1.1688347;
 		};
 		class Item30
 		{
@@ -582,6 +583,7 @@ class Mission
 			};
 			id=30;
 			type="VTE_AmmoBoxUS";
+			atlOffset=-0.098686218;
 		};
 		class Item31
 		{
@@ -4579,7 +4581,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={11909.762,55.551437,7917.9712};
+						position[]={11909.762,55.551437,7917.9707};
 						angles[]={0,4.712389,0};
 					};
 					side="West";
@@ -4588,10 +4590,52 @@ class Mission
 					{
 						skill=0.59999996;
 						rank="LIEUTENANT";
-						init="arvninf1 = group this;";
+						init="arvninf1 = group this; [group this, getPosASL pmc_1] call bis_fnc_taskDefend;";
 					};
 					id=277;
 					type="VTE_arvnofficer1";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.02;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{

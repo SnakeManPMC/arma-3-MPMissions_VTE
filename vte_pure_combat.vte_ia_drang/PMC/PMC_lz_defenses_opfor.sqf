@@ -15,8 +15,9 @@ for [{_x = 1}, {_x <= 2}, {_x = _x + 1}] do
 {
 	// NVA
 	_grp = [_pos] call PMC_Create_Squad_NVA;
-
+	[_grp, _pos] call BIS_fnc_taskDefend;
 
 	// VC
 	_grp = [_pos] call PMC_Create_Squad_VC;
+	[_grp, _pos] call BIS_fnc_taskDefend;
 };

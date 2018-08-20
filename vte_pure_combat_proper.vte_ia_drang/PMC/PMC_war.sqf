@@ -31,60 +31,8 @@ _waypointRanPosit = 100;
 
 // default
 _PMC_maxunits = 100;
-// from server start
-// "50", "100", "150", "200", "250", "300", "350", "400", "450", "500"
-switch (paramsarray select 3) do
-{
-	case 1:
-	{
-		_PMC_maxunits = 50;
-	};
 
-	case 2:
-	{
-		_PMC_maxunits = 100;
-	};
-
-	case 3:
-	{
-		_PMC_maxunits = 150;
-	};
-
-	case 4:
-	{
-		_PMC_maxunits = 200;
-	};
-
-	case 5:
-	{
-		_PMC_maxunits = 250;
-	};
-
-	case 6:
-	{
-		_PMC_maxunits = 300;
-	};
-
-	case 7:
-	{
-		_PMC_maxunits = 350;
-	};
-
-	case 8:
-	{
-		_PMC_maxunits = 400;
-	};
-
-	case 9:
-	{
-		_PMC_maxunits = 450;
-	};
-
-	case 10:
-	{
-		_PMC_maxunits = 500;
-	};
-};
+_PMC_maxunits = ["PMC_maxunits"] call BIS_fnc_getParamValue;
 
 // if all fails
 _MaxOPFOR = 70;
@@ -130,19 +78,7 @@ switch (paramsarray select 4) do
 	};
 };
 
-// description.ext params array thing
-// default
-PMC_VictoryCondition = 1000;
-// from server start
-switch (paramsarray select 2) do
-{
-//"100 KIA", "500 KIA", "1000 KIA", "5000 KIA", "10,000 KIA"
-	case 1: { PMC_VictoryCondition = 100; };
-	case 2: { PMC_VictoryCondition = 500; };
-	case 3: { PMC_VictoryCondition = 1000; };
-	case 4: { PMC_VictoryCondition = 5000; };
-	case 5: { PMC_VictoryCondition = 10000; };
-};
+PMC_VictoryCondition = ["PMC_VictoryCondition"] call BIS_fnc_getParamValue;
 
 // set for network, for briefing.sqf
 publicVariable "PMC_VictoryCondition";

@@ -32,7 +32,8 @@ PMC_MakePatrolInfBLUFOR =
 	_grp setspeedmode "LIMITED";
 	_grp setformation "WEDGE";
 
-	_wp = [_grp, (getPosASL leader _grp), _targetpoint, 50, 1000] call PMC_plotWaypoints;
+	// pmc_1 is plei me gamelogic
+	_wp = [_grp, (getPosASL pmc_1), _targetpoint, 50, 1000] call PMC_plotWaypoints;
 	_wp = _wp + 1;
 
 	// waypoints, we add couple to make patrol area

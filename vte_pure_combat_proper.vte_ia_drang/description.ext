@@ -23,7 +23,6 @@ class Header
 
 class Params
 {
-// (paramsarray select 0)
 	class TimeOfDay
 	{
 		title = "Time of Day";
@@ -32,7 +31,6 @@ class Params
 		default = 8;
 	};
 
-// (paramsarray select 1)
 	class PMC_WeatherSetting
 	{
 		title = "Weather setting";
@@ -41,30 +39,86 @@ class Params
 		default = 6;
 	};
 	
-// (paramsarray select 2)
 	class PMC_VictoryCondition
 	{
 		title = "Victory condition";
-		values[] = {1, 2, 3, 4, 5};
+		values[] = {100, 500, 1000, 5000, 10000};
 		texts[] = {"100 KIA", "500 KIA", "1000 KIA", "5000 KIA", "10,000 KIA"};
-		default = 4;
+		default = 1000;
 	};
 
-// (paramsarray select 3)
 	class PMC_maxunits
 	{
 		title = "Max number of units";
-		values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		values[] = {50, 100, 150, 200, 250, 300, 350, 400, 450, 500};
 		texts[] = {"50", "100", "150", "200", "250", "300", "350", "400", "450", "500"};
-		default = 4;
+		default = 100;
 	};
 
-// (paramsarray select 4)
 	class PMC_forcelevels
 	{
 		title = "Force levels BLUFOR vs OPFOR";
 		values[] = {1, 2, 3, 4, 5};
 		texts[] = {"1:0.5", "1:1", "1:1.5", "1:2", "1:5"};
 		default = 3;
+	};
+};
+
+class CfgCommunicationMenu
+{
+	class PMC_Check_Stats
+	{
+		text = "Check Stats";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_debug_hints.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+	};
+
+	class PMC_Call_81mm_Mortars
+	{
+		text = "Call 81mm Mortars";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_artillery_81mm.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+	};
+
+	class PMC_Call_Artillery_M101
+	{
+		text = "Call Artillery M101";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_artillery_m101.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+	};
+
+	class PMC_Call_Airstrike
+	{
+		text = "Call Airstrike";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_Airstrike.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
+	};
+
+// ["VTE_uh1", CV_helopad, pmc_1] execVM "PMC\PMC_call_evac_helo.sqf";
+	class PMC_Call_Evac
+	{
+		text = "Call Evac";
+		submenu = "";
+		expression = "_this execVM 'PMC\PMC_call_evac_helo.sqf';";
+		icon = "";
+		cursor = "";
+		enable = "1";
+		removeAfterExpressionCall = 0;
 	};
 };

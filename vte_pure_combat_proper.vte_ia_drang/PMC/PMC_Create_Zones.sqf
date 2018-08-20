@@ -20,7 +20,7 @@ private ["_a","_m","_markerobj","_PMC_t","_targetpoint","_tlogic","_triggerArea"
 // small check that we are coordinated with server
 waitUntil
 {
-	(count PMC_zones > 1);
+	(!isNil "PMC_zones");
 };
 
 // create objectives
