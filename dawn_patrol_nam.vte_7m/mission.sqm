@@ -834,7 +834,7 @@ class Mission
 			{
 				name="init";
 				condition="true";
-				onActivation="hint""Set View Distance At Flag Pole also Adjust Terrain Detail At Flag Pole"";bSupp1=false;[]exec""zEvac.sqs"";";
+				onActivation="hint""Set View Distance At Flag Pole also Adjust Terrain Detail At Flag Pole"";bSupp1=false;[] execVM ""zEvac.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				timeout[]={10,10,10};
@@ -874,7 +874,7 @@ class Mission
 			{
 				text="doS1";
 				condition="true";
-				onActivation="[]exec""doS1.sqs"";";
+				onActivation="[]execVM ""doS1.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				timeout[]={2,2,2};
@@ -1877,7 +1877,7 @@ class Mission
 			class Attributes
 			{
 				skill=0.60000002;
-				init="this addAction[""View Distance 1000m"",""view.sqs""];this addAction[""View Distance 1500m"",""view1.sqs""];this AddAction[""View Distance 2000m"",""view2.sqs""];this AddAction[""View Distance 2500m"",""view3.sqs""];this AddAction[""Set Terrain Detail VLow"",""terrain.sqs""];this AddAction[""Set Terrain Detail Low"",""terrain1.sqs""];this AddAction[""Set Terrain Detail Normal"",""terrain2.sqs""];this AddAction[""Set Terrain Detail High"",""terrain3.sqs""];this AddAction[""Set Terrain Detail VHigh"",""terrain4.sqs""];hint ""Set View Distance and Terrain At Flag Pole"";";
+				init="this addAction[""View Distance 1000m"",""view.sqf""];this addAction[""View Distance 1500m"",""view1.sqf""];this AddAction[""View Distance 2000m"",""view2.sqf""];this AddAction[""View Distance 2500m"",""view3.sqf""];this AddAction[""Set Terrain Detail VLow"",""terrain.sqf""];this AddAction[""Set Terrain Detail Low"",""terrain1.sqf""];this AddAction[""Set Terrain Detail Normal"",""terrain2.sqf""];this AddAction[""Set Terrain Detail High"",""terrain3.sqf""];this AddAction[""Set Terrain Detail VHigh"",""terrain4.sqf""];hint ""Set View Distance and Terrain At Flag Pole"";";
 			};
 			id=108;
 			type="vte_flagcarrier_usa";

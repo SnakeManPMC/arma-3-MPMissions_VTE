@@ -864,7 +864,7 @@ class Mission
 			{
 				text="Objective 0";
 				condition="this && ""Land"" CountType ThisList > 0";
-				onActivation="[server, ""objective0""] exec ""obj.sqs""";
+				onActivation="[server, ""objective0""] execVM ""obj.sqf""";
 				sizeA=35;
 				sizeB=35;
 				activationBy="WEST";
@@ -881,7 +881,7 @@ class Mission
 			class Attributes
 			{
 				text="Objective 1";
-				onActivation="[server, ""objective1""] exec ""obj.sqs""";
+				onActivation="[server, ""objective1""] execVM ""obj.sqf""";
 				sizeA=100;
 				activationByOwner="MEMBER";
 			};
@@ -898,7 +898,7 @@ class Mission
 			{
 				text="Objective 2";
 				condition="{alive _x} count units convoygrp1 < 5 && {alive _x} count units convoygrp2 < 5 && {alive _x} count units convoygrp3 < 5";
-				onActivation="[server, ""objective2""] exec ""obj.sqs""";
+				onActivation="[server, ""objective2""] execVM ""obj.sqf""";
 				sizeA=0;
 				sizeB=0;
 			};
@@ -915,7 +915,7 @@ class Mission
 			{
 				text="Objective 3";
 				condition="{_x in helo1} count  units ops == count units ops";
-				onActivation="[server, ""objective3""] exec ""obj.sqs""";
+				onActivation="[server, ""objective3""] execVM ""obj.sqf""";
 				sizeA=0;
 				sizeB=0;
 			};
@@ -930,7 +930,7 @@ class Mission
 			class Attributes
 			{
 				condition="this && o2";
-				onActivation="[server, ""extract""] exec ""obj.sqs""";
+				onActivation="[server, ""extract""] execVM ""obj.sqf""";
 				sizeA=200;
 				sizeB=200;
 				activationBy="WEST";
@@ -947,7 +947,7 @@ class Mission
 			{
 				text="NVA Camp Security";
 				condition="this && ""Land"" CountType ThisList > 0";
-				onActivation="[server, ""nvacamp""] exec ""obj.sqs""";
+				onActivation="[server, ""nvacamp""] execVM ""obj.sqf""";
 				sizeA=400;
 				sizeB=400;
 				activationBy="WEST";
@@ -979,9 +979,8 @@ class Mission
 			position[]={5414.334,7.7986941,7883.7783};
 			class Attributes
 			{
-				text="Snypir Script";
+				text="Snypir Script land_chopper removed";
 				condition="helo1 in thislist";
-				onActivation="[helo1,getwppos [group helo1,3]] exec ""land_chopper.sqs""; [driver red1, driver red2, gunner red1, gunner red2] join grpnull";
 				sizeA=300;
 				sizeB=300;
 				activationBy="WEST";
@@ -997,9 +996,8 @@ class Mission
 			class Attributes
 			{
 				name="hhome";
-				text="Snypir Script";
+				text="Snypir Script land_chopper removed";
 				condition="helo1 in thislist && o3";
-				onActivation="[helo1,getwppos [group helo1,5]] exec ""land_chopper.sqs""; home=1; publicVariable ""home""";
 				sizeA=300;
 				sizeB=300;
 				activationBy="WEST";
@@ -1101,7 +1099,7 @@ class Mission
 			{
 				text="Red Team CAS";
 				condition="this && secondaryWeapon player == ""VTE_prc25""";
-				onActivation="[server, ""red""] exec ""obj.sqs"";";
+				onActivation="[server, ""red""] execVM ""obj.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				activationBy="BRAVO";
@@ -1118,7 +1116,7 @@ class Mission
 			{
 				text="Pink Team CAS";
 				condition="this && secondaryWeapon player == ""VTE_prc25""";
-				onActivation="[server, ""pink""] exec ""obj.sqs"";";
+				onActivation="[server, ""pink""] execVM ""obj.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				activationBy="ALPHA";
@@ -1254,7 +1252,7 @@ class Mission
 			{
 				text="KIA Ending";
 				condition="kia";
-				onActivation="[player, ""outroloose""] exec ""cinema.sqs""";
+				onActivation="[player, ""outroloose""] execVM ""cinema.sqf""";
 				sizeA=0;
 				sizeB=0;
 				timeout[]={5,5,5};
@@ -1290,7 +1288,7 @@ class Mission
 			{
 				text="Mission Complete";
 				condition="home==1";
-				onActivation="[player, ""outrowin""] exec ""cinema.sqs""; objchek=true; publicvariable ""objchek"";";
+				onActivation="[player, ""outrowin""] execVM ""cinema.sqf""; objchek=true; publicvariable ""objchek"";";
 				sizeA=0;
 				sizeB=0;
 				timeout[]={20,20,20};
@@ -1343,7 +1341,7 @@ class Mission
 			{
 				text="Mortar Script";
 				condition="true";
-				onActivation="[m2] exec ""mortarfire.sqs""";
+				onActivation="[m2] execVM ""mortarfire.sqf""";
 				sizeA=0;
 				sizeB=0;
 				timeout[]={6,7.5,9};
@@ -2528,7 +2526,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.73333299;
-						init="this addAction [""Bury Gunner"", ""buryg.sqs""]";
+						init="this addAction [""Bury Gunner"", ""buryg.sqf""]";
 					};
 					id=181;
 					type="VTE_acpilot";
@@ -2561,7 +2559,7 @@ class Mission
 					class Attributes
 					{
 						skill=0.73333299;
-						init="this addAction [""Bury Pilot"", ""buryp.sqs""]";
+						init="this addAction [""Bury Pilot"", ""buryp.sqf""]";
 					};
 					id=183;
 					type="VTE_acpilot";
@@ -5173,7 +5171,7 @@ class Mission
 				angles[]={0,6.1003656,0};
 			};
 			name="server";
-			init="[server, ""intro""] exec ""cinema.sqs"";";
+			init="[server, ""intro""] execVM ""cinema.sqf"";";
 			id=346;
 			type="Logic";
 		};
@@ -5414,7 +5412,7 @@ class Mission
 			class Attributes
 			{
 				skill=0.73333299;
-				init="[this] exec ""mortarfire.sqs""";
+				init="[this] execVM ""mortarfire.sqf""";
 			};
 			id=355;
 			type="VTE_60mortarnva";

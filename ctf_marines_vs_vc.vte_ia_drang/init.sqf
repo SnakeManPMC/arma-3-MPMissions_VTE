@@ -1,0 +1,5 @@
+
+[] execVM "briefing.sqf";
+enableSaving [ false, false ];
+
+titleCut ["","BLACK IN", 3];

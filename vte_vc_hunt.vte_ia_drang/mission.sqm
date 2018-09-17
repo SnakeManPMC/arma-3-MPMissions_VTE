@@ -288,7 +288,7 @@ class Mission
 			class Attributes
 			{
 				text="null";
-				onActivation="[] exec ""countunits.sqs"";";
+				onActivation="[] execVM ""countunits.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				repeatable=1;
@@ -305,7 +305,7 @@ class Mission
 			class Attributes
 			{
 				text="Airstrike LGB";
-				onActivation="onMapSingleClick {[_pos] exec ""airstrike.sqs""}; strikePilot sideChat ""Give me a target""";
+				onActivation="onMapSingleClick {[_pos] execVM ""airstrike.sqf""}; strikePilot sideChat ""Give me a target""";
 				sizeA=0;
 				sizeB=0;
 				repeatable=1;
@@ -322,7 +322,7 @@ class Mission
 			class Attributes
 			{
 				text="Airstrike Napalm";
-				onActivation="onMapSingleClick {[_pos] exec ""airstrike_naplam.sqs""}; strikePilot sideChat ""Give me a target""";
+				onActivation="onMapSingleClick {[_pos] execVM ""airstrike_naplam.sqf""}; strikePilot sideChat ""Give me a target""";
 				sizeA=0;
 				sizeB=0;
 				repeatable=1;

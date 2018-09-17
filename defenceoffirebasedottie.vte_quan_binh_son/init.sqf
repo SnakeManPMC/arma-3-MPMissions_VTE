@@ -2,8 +2,6 @@
 
 anz_fire=false;
 
-[] exec "westari\ari.sqs";
-
 opforwin=false;
 bluforwin=false;
 

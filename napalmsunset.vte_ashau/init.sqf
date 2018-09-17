@@ -62,5 +62,23 @@ revives_required = 3;
 //Number of teamkills before punishment
 no_team_kills = 2;
 
-// disabled due SQF errors 12-22-17
+// disabled due SQF errors 12-22-17, eh DELETED at 2018-09-17 due sqs and dialogs
 //call{[] execVM "revive_sqf\revive_init.sqf"};
+
+setTerrainGrid 50;
+titlecut [" ", "black in", 1];
+titlecut [" ", "black in", 5];
+private _cam = "camera" camcreate [0,0,0];
+_cam CameraEffect ["Internal", "back"];
+_cam camsettarget g22;
+_cam camsetrelpos [0,0, 200];
+_cam camcommit 0;
+waitUntil { (camcommitted _cam); };
+sleep 5;
+TitleText ["N A P A L M    S U N S E T","PLAIN DOWN"];
+sleep 5;
+TitleText ["A  M I S S I O N   B Y   [ X D F ]  S O L D I E R  X ","PLAIN DOWN"];
+sleep 5;
+titlecut [" ", "black in", 2];
+_cam cameraeffect ["terminate", "back"];
+camdestroy _cam;

@@ -512,7 +512,7 @@ class Mission
 			{
 				name="westkillzone";
 				text="westkillzone";
-				onActivation="thislist exec ""deadzone.sqs""";
+				onActivation="thislist execVM ""deadzone.sqf""";
 				sizeA=130;
 				sizeB=150;
 				repeatable=1;
@@ -532,7 +532,7 @@ class Mission
 			{
 				name="eastkillzone";
 				text="eastkillzone";
-				onActivation="thislist exec ""deadzone.sqs""";
+				onActivation="thislist execVM ""deadzone.sqf""";
 				sizeA=130;
 				sizeB=150;
 				repeatable=1;
@@ -606,7 +606,7 @@ class Mission
 			position[]={5757.8916,20.626783,9942.4824};
 			class Attributes
 			{
-				text="Ending after Outro.sqs";
+				text="Ending after Outro.sqf";
 				condition="Over";
 				onActivation="ForceEnd";
 				sizeA=0;
@@ -625,7 +625,7 @@ class Mission
 			{
 				text="Ending when time is up or score is maximum";
 				condition="(param1<10000 and ((time >= param1) or (TimeEnd >= param1))) or (param2<10000 and ((WScore>=param2) or (EScore>=param2)))";
-				onActivation="TimeEnd=time; publicVariable ""TimeEnd""; titletext[format [""Mission over\nFinal score : NATO %1 - Soviet %2"", WScore, EScore], ""Plain""]; player exec ""Outro.sqs""";
+				onActivation="TimeEnd=time; publicVariable ""TimeEnd""; titletext[format [""Mission over\nFinal score : NATO %1 - Soviet %2"", WScore, EScore], ""Plain""]; player execVM ""Outro.sqf""";
 				sizeA=0;
 				sizeB=0;
 			};

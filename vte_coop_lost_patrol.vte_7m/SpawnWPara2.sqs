@@ -1,9 +1,0 @@
-_StartLocation = _this select 0
-
-_dis = sqrt(((abs((_StartLocation select 0) - (getmarkerpos "blick" select 0)))^2)+((abs((_StartLocation select 1) - (getmarkerpos "blick" select 1)))^2))
-?(_dis > 12800):["Again"] exec "SpawnWPara.sqs"; exit
-TitleText ["","Plain"]
-[Player,_StartLocation,130,true,"Parachute over selected Area!",getmarkerpos "blick"] exec "Fallschirm.sqs"
-;forceMap false
-exit
-
