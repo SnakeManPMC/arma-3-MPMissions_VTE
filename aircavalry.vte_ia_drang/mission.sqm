@@ -724,7 +724,7 @@ class Mission
 			{
 				text="Vehicle 1";
 				condition="!Canmove Veh1";
-				onActivation="[Veh1, ""VTE_B52"", Veh1Pos, 360, 2, 10, 1, 0, 0] exec ""vehicle-respawn.sqs""";
+				onActivation="[Veh1, ""VTE_B52"", Veh1Pos, 360, 2, 10, 1, 0, 0] execVM ""vehicle-respawn.sqf""";
 				sizeA=0;
 				sizeB=0;
 				repeatable=1;
@@ -742,7 +742,7 @@ class Mission
 			{
 				text="Vehicle 2";
 				condition="!Canmove Veh2";
-				onActivation="[Veh2, ""VTE_B52"", Veh2Pos, 180, 15, 3, 1, 1, 0] exec ""vehicle-respawn.sqs""";
+				onActivation="[Veh2, ""VTE_B52"", Veh2Pos, 180, 15, 3, 1, 1, 0] execVM ""vehicle-respawn.sqf""";
 				sizeA=0;
 				sizeB=0;
 				repeatable=1;
@@ -774,7 +774,7 @@ class Mission
 			class Attributes
 			{
 				condition="{alive _x} count [obj1,obj2,obj3,obj4,obj5,obj6,obj7] == 0";
-				onActivation="[server, ""objective1""] exec ""obj.sqs"";";
+				onActivation="[server, ""objective1""] execVM ""obj.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				timeout[]={2,2,2};
