@@ -1,0 +1,440 @@
+author = "Ebud, VTE.";
+minScore=-8950;
+avgScore=2250;
+maxScore=7000;
+
+onLoadMission="THE TAXMAN";
+debriefing = 1;
+
+class Weapons
+{
+   class Binocular	{count =  5;};
+   class HandGrenade	{count =  12;};
+   class Pipebomb	{count =  4;};
+   class vte_xm177e	{count =  5;};
+   class vte_car15gl	{count =  1;};
+   class VTE_flaregun	{count =  7;};
+   class vte_ithaca	{count =  2;};   
+   class VTE_law	{count =  4;};
+   class VTE_m14	{count =  4;};
+   class vte_m16a1	{count =  7;};
+   class vte_m1911	{count =  5;};
+   class VTE_m21	{count =  1;};
+   class vte_m39hp	{count =  1;};
+   class vte_m3sd	{count =  1;};
+   class vte_m45	{count =  2;};
+   class VTE_m60	{count =  2;};
+   class vte_m60s	{count =  1;};
+   class vte_stoner_mg	{count =  1;};
+   class VTE_m79	{count =  3;};
+   class vte_prc25	{count =  1;};
+   class VTE_rpd	{count =  1;};
+};
+
+class Magazines
+{
+   class HandGrenade		{count =  36;};
+   class Pipebomb		{count =  2;};
+   class VTE_100Rnd_556x45_M23		{count =  15;};
+   class VTE_100Rnd_762x51_M60	{count =  15;};
+   class VTE_20Rnd_556x45_Stanag	{count =  50;};
+   class VTE_20Rnd_762x51_nato	{count =  50;};
+   class VTE_25Rnd_45ACPSD	{count =  50;};
+   class VTE_32Rnd_uzi		{count =  15;};
+   class VTE_40mm_AmmoBag		{count =  2;};
+   class VTE_40mm_Buckshot		{count =  30;};
+   class VTE_5Rnd_762x51_nato		{count =  36;};
+   class VTE_7Rnd_1911		{count =  15;};
+   class VTE_8Rnd_45ACPSD		{count =  10;};
+   class VTE_FlareGreen_Rifle		{count =  12;};
+   class VTE_FlareRed_Rifle		{count =  12;};
+   class VTE_FlareWhite_Rifle		{count =  12;};
+   class VTE_FlareYellow_Rifle	{count =  12;};
+   class VTE_ithacashell	{count =  36;};
+   class VTE_m72	{count =  36;};
+};
+
+class CfgIdentities
+{
+	class aP
+	{
+		name = "R. Scott";
+		face = "vte_facewc10";
+		glasses = "none";
+		speaker = "Rich";
+		pitch = 0.90;
+	};
+	class ap2
+	{
+		name = "B. Mitchel";
+		face = "vte_facewc0";
+		glasses = "none";
+		speaker = "Rob";
+		pitch = 1.00;
+	};
+	class ap3
+	{
+		name = "J. Wilson";
+		face = "vte_facewc4";
+		glasses = "none";
+		speaker = "Jonah";
+		pitch = 1.00;
+	};
+	class ap4
+	{
+		name = "G. Toomy";
+		face = "vte_facewc6";
+		glasses = "none";
+		speaker = "Greg";
+		pitch = 1.00;
+	};
+	class ap5
+	{
+		name = "F. Shaw";
+		face = "vte_facewc11";
+		glasses = "none";
+		speaker = "Adam";
+		pitch = 1.00;
+	};
+	class ap6
+	{
+		name = "T. Glasser";
+		face = "vte_facewc1";
+		glasses = "none";
+		speaker = "Ted";
+		pitch = 1.00;
+	};	
+	class ap7
+	{
+		name = "D. Judge";
+		face = "vte_facewc4";
+		glasses = "none";
+		speaker = "Dan";
+		pitch = 1.00;
+	};
+
+	class Zulu
+	{
+		name = "Zulu";
+		face = "vte_facewc6";
+		glasses = "none";
+		speaker = "Peter";
+		pitch = 1.00;
+	};
+	class Wolf1
+	{
+		name = "Wolf1";
+		face = "vte_facew9";
+		glasses = "none";
+		speaker = "George";
+		pitch = 0.9;
+	};
+	class Wolf2
+	{
+		name = "Wolf2";
+		face = "vte_facew4";
+		glasses = "none";
+		speaker = "John";
+		pitch = 0.9;
+	};
+	class Wolf3
+	{
+		name = "Wolf3";
+		face = "vte_facew5";
+		glasses = "none";
+		speaker = "Patrick";
+		pitch = 0.9;
+	};
+	class Wolf4
+	{
+		name = "Wolf4";
+		face = "vte_facew3";
+		glasses = "none";
+		speaker = "Tom";
+		pitch = 0.9;
+	};
+	class Kilo1
+	{
+		name = "Kilo1";
+		face = "vte_facew9";
+		glasses = "none";
+		speaker = "Dan";
+		pitch = 0.6;
+	};
+
+	class informant
+	{
+		name = "informant";
+		face = "vte_facev5";
+		glasses = "none";
+		speaker = "Dan";
+		pitch = 1.2;
+	};
+
+	class tracker2leader
+	{
+		name = "tracker2leader";
+		face = "vte_facev3";
+		glasses = "none";
+		speaker = "Dan";
+		pitch = 1;
+	};
+
+};
+class CfgSounds 
+{ 
+	sounds[] = { "radiocheckalpha","66otw","alpharequestsupport","apsaytrgtdown","det1","det2","det3","det4","det5","det6","det7","radiocheckalpha","radiocheckzulu","sierra66otw","sierra67otw","sierraotw","zulu_say_66_down","zulu_say_67_down","zulusaytrgtdown","alphaextract","kilootw","viet_at1","viet_at2","viet_at3","viet_at4","viet_at5","viet_at6","viet_end1","viet_end2","viet_end3","viet_end4","viet_hit1","viet_hit2","viet_hit3","viet_hit4" };
+ 
+	class alpharequestsupport
+	{ 
+		name = "alpharequestsupport"; 
+		sound[] = {"alpharequestsupport.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_alpharequestsupport}; 
+	}; 
+	class apsaytrgtdown
+	{ 
+		name = "apsaytrgtdown"; 
+		sound[] = {"apsaytrgtdown.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_apsaytrgtdown}; 
+	}; 
+	class det1
+	{ 
+		name = "det1"; 
+		sound[] = {"det1.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_det1}; 
+	}; 
+	class det2
+	{ 
+		name = "det2"; 
+		sound[] = {"det2.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_det2}; 
+	}; 
+	class det3
+	{ 
+		name = "det3"; 
+		sound[] = {"det3.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_det3}; 
+	}; 
+	class det4
+	{ 
+		name = "det4"; 
+		sound[] = {"det4.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_det4}; 
+	}; 
+	class det5
+	{ 
+		name = "det5"; 
+		sound[] = {"det5.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_det5}; 
+	}; 
+	class det6
+	{ 
+		name = "det6"; 
+		sound[] = {"det6.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_det6}; 
+	}; 
+	class det7
+	{ 
+		name = "det7"; 
+		sound[] = {"det7.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_det7}; 
+	}; 
+	class radiocheckalpha
+	{ 
+		name = "radiocheckalpha"; 
+		sound[] = {"radiocheckalpha.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_radiocheckalpha}; 
+	}; 
+	class radiocheckzulu
+	{ 
+		name = "radiocheckzulu"; 
+		sound[] = {"radiocheckzulu.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_radiocheckzulu}; 
+	}; 
+	class 66otw
+	{ 
+		name = "66otw"; 
+		sound[] = {"66otw.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_66otw}; 
+	}; 
+	class 67otw
+	{ 
+		name = "67otw"; 
+		sound[] = {"67otw.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_67otw}; 
+	}; 
+	class sierraotw
+	{ 
+		name = "sierraotw"; 
+		sound[] = {"sierraotw.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_sierraotw}; 
+	}; 
+	class zulu_say_66_down
+	{ 
+		name = "zulu_say_66_down"; 
+		sound[] = {"zulu_say_66_down.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_zulu_say_66_down}; 
+	}; 
+	class zulu_say_67_down
+	{ 
+		name = "zulu_say_67_down"; 
+		sound[] = {"zulu_say_67_down.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_zulu_say_67_down}; 
+	}; 
+	class zulusaytrgtdown
+	{ 
+		name = "zulusaytrgtdown"; 
+		sound[] = {"zulusaytrgtdown.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_zulusaytrgtdown}; 
+	};
+	class alphaextract
+	{ 
+		name = "alphaextract"; 
+		sound[] = {"alphaextract.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_alphaextract}; 
+	};
+	class kilootw
+	{ 
+		name = "kilootw"; 
+		sound[] = {"kilootw.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_kilootw}; 
+	}; 
+	class viet_at1
+	{ 
+		name = "viet_at1"; 
+		sound[] = {"viet_at1.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at1}; 
+	};
+	class viet_at2
+	{ 
+		name = "viet_at1"; 
+		sound[] = {"viet_at2.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at2}; 
+	};
+	class viet_at3
+	{ 
+		name = "viet_at3"; 
+		sound[] = {"viet_at3.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at3}; 
+	};
+	class viet_at4
+	{ 
+		name = "viet_at4"; 
+		sound[] = {"viet_at4.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at4}; 
+	};
+	class viet_at5
+	{ 
+		name = "viet_at5"; 
+		sound[] = {"viet_at5.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at5}; 
+	};
+	class viet_at6
+	{ 
+		name = "viet_at6"; 
+		sound[] = {"viet_at6.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at6}; 
+	};
+	class viet_at7
+	{ 
+		name = "viet_at7"; 
+		sound[] = {"viet_at7.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at7}; 
+	};
+	class viet_at8
+	{ 
+		name = "viet_at8"; 
+		sound[] = {"viet_at8.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at8}; 
+	};
+	class viet_at9
+	{ 
+		name = "viet_at9"; 
+		sound[] = {"viet_at9.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at9}; 
+	};
+	class viet_at10
+	{ 
+		name = "viet_at10"; 
+		sound[] = {"viet_at10.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at10}; 
+	};
+	class viet_at11
+	{ 
+		name = "viet_at11"; 
+		sound[] = {"viet_at11.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at11}; 
+	};
+	class viet_at12
+	{ 
+		name = "viet_at12"; 
+		sound[] = {"viet_at12.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at12}; 
+	};
+	class viet_at13
+	{ 
+		name = "viet_at13"; 
+		sound[] = {"viet_at13.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at13}; 
+	};
+	class viet_at14
+	{ 
+		name = "viet_at14"; 
+		sound[] = {"viet_at134.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at14}; 
+	};
+	class viet_at15
+	{ 
+		name = "viet_at15"; 
+		sound[] = {"viet_at15.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_at15}; 
+	};
+	class viet_end1
+	{ 
+		name = "viet_end1"; 
+		sound[] = {"viet_end1.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_end1}; 
+	};
+	class viet_end2
+	{ 
+		name = "viet_end2"; 
+		sound[] = {"viet_end2.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_end2}; 
+	};
+	class viet_end3
+	{ 
+		name = "viet_end3"; 
+		sound[] = {"viet_end3.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_end3}; 
+	};
+	class viet_end4
+	{ 
+		name = "viet_end4"; 
+		sound[] = {"viet_end4.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_end4}; 
+	};
+	class viet_hit1
+	{ 
+		name = "viet_hit1"; 
+		sound[] = {"viet_hit1.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_hit1}; 
+	};
+	class viet_hit2
+	{ 
+		name = "viet_hit2"; 
+		sound[] = {"viet_hit2.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_hit2}; 
+	};
+	class viet_hit3
+	{ 
+		name = "viet_hit3"; 
+		sound[] = {"viet_hit3.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_hit3}; 
+	};
+	class viet_hit4
+	{ 
+		name = "viet_hit4"; 
+		sound[] = {"viet_hit4.ogg", db-5,1}; 
+		titles[] = {};//{0,$STRM_viet_hit4}; 
+	};
+};
