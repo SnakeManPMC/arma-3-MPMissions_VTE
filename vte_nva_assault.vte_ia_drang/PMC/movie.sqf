@@ -76,7 +76,7 @@ waitUntil { (camCommitted _camera); };
 sleep 0.5;
 
 titleText [format["So much death and destruction...\nNVA/VC Killed: %1", PMC_opfor], "plain down", 3];
-//playmusic ["rtrack3",0];
+//[] execVM "PMC\PMC_Music_Jukebox_ArmA3_Default_Tracks.sqf";
 
 // close E edge
 _camera camPrepareTarget [31015.45,104699.58,-15357.44];
