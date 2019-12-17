@@ -82,7 +82,7 @@ while {_PMC_opfor < _victoryCondition} do
 		// add one group created.
 		PMC_grp_opfor = PMC_grp_opfor + 1;
 
-		diag_log format["Created new OPFOR group of : %1, total: %2", (count units _grp), (count list pmc_opfor_list)];
+		diag_log format["PMC_war_OPFOR; Created new OPFOR group of : %1, total: %2", (count units _grp), (count list pmc_opfor_list)];
 
 		// put them under the NVA Colonels command
 		nva_colonel hcsetgroup [_grp, ""];
@@ -91,4 +91,4 @@ while {_PMC_opfor < _victoryCondition} do
 	sleep _sleeptime;
 };
 
-diag_log format["**** War_OPFOR.sqf ended with %1 created at %2 time.", _PMC_opfor, time];
+diag_log format["PMC_war_OPFOR; **** ended with %1 created at %2 time.", _PMC_opfor, time];

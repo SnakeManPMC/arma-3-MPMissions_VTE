@@ -55,7 +55,7 @@ while {_PMC_ind < _victoryCondition} do
 		// add one group created.
 		PMC_grp_ind = PMC_grp_ind + 1;
 
-		diag_log format["Created new IND group of : %1, total: %2", (count units _grp), (count list pmc_ind_list)];
+		diag_log format["War_IND; Created new IND group of : %1, total: %2", (count units _grp), (count list pmc_ind_list)];
 
 		// put them under the NVA Colonels command
 		nva_colonel hcsetgroup [_grp, ""];
@@ -64,4 +64,4 @@ while {_PMC_ind < _victoryCondition} do
 	sleep _sleeptime;
 };
 
-diag_log format["**** War_IND.sqf ended with %1 created at %2 time.", _PMC_ind, time];
+diag_log format["War_IND; **** ended with %1 created at %2 time.", _PMC_ind, time];
