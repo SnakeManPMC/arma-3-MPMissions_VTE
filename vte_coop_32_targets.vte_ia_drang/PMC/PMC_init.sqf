@@ -1,3 +1,7 @@
+
+[] execVM "PMC\PMC_Briefing.sqf";
+[] execVM "PMC\PMC_Tasks.sqf";
+
 PMC_debug = false;
 publicVariable "PMC_debug";
 PMC_killedNum = 0;

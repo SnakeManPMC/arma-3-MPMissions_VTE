@@ -1,4 +1,7 @@
 
+[] execVM "PMC\PMC_Briefing.sqf";
+[] execVM "PMC\PMC_Tasks.sqf";
+
 // description.ext mission starting parameters
 skiptime (((paramsarray select 0) - daytime + 24) % 24);
 
