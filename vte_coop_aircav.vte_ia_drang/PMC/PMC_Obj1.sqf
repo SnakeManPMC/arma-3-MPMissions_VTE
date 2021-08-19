@@ -6,5 +6,4 @@ PMC_target1 = true;
 publicVariable "PMC_target1";
 PMC_objective1 setTaskState "succeeded";
 
-// nice hint of it
-[objNull, ObjNull, PMC_objective1, "SUCCEEDED"] execVM "CA\Modules\MP\data\scriptCommands\taskHint.sqf";
+["PMC_objective1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;

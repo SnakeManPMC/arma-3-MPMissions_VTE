@@ -14,6 +14,5 @@ _tmp = true;
 publicVariable format["%1", _tmp];
 _tmp2 setTaskState "succeeded";
 
-// nice hint of it
-[objNull, ObjNull, _tmp2, "SUCCEEDED"] execVM "CA\Modules\MP\data\scriptCommands\taskHint.sqf";
+[_tmp2, "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 diag_log format ["Objective %1 succeeded!", _tmp];
