@@ -7,7 +7,7 @@ private _scriptcall = _this select 1;
 
 if (_scriptcall == "objective0") then
 {
-	"0" objstatus "done";
+	["t0", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 	"r0" setmarkercolor "colorblue";
 	ob0=false;
 	o0=true;
@@ -18,7 +18,7 @@ if (_scriptcall == "objective0") then
 
 if (_scriptcall == "objective1") then
 {
-	"1" objstatus "done";
+	["t1", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 	"r1" setmarkercolor "colorblue";
 	"r1m" setmarkercolor "colorblue";
 	ob1=false;
@@ -32,7 +32,7 @@ if (_scriptcall == "objective1") then
 
 if (_scriptcall == "objective2") then
 {
-	"2" objstatus "done";
+	["t2", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 	"r2" setmarkercolor "colorblue";
 	"r2m" setmarkercolor "colorblue";
 	ob2=false;
@@ -76,7 +76,7 @@ if (_scriptcall == "objective2") then
 
 if (_scriptcall == "objective3") then
 {
-	"3" objstatus "done";
+	["t3", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 	"r3" setmarkercolor "colorblue";
 	"r3m" setmarkercolor "colorblue";
 	ob3=false;
@@ -91,7 +91,7 @@ if (_scriptcall == "objective3") then
 
 if (_scriptcall == "objective4") then
 {
-	"4" objstatus "done";
+	["t4", "SUCCEEDED", true] spawn BIS_fnc_taskSetState;
 	"r4" setmarkercolor "colorblue";
 	"r4m" setmarkercolor "colorblue";
 	ob4=false;

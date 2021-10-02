@@ -297,7 +297,7 @@ class Mission
 			class Attributes
 			{
 				condition="!alive ammo1 AND !alive ammo2 AND !alive ammo3";
-				onActivation="obj1=true;""1"" objstatus ""done""";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective1.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				interuptable=1;
@@ -313,7 +313,7 @@ class Mission
 			class Attributes
 			{
 				condition="!alive sam1 AND !alive sam2";
-				onActivation="obj2=true;""2"" objstatus ""done""";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective2.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				interuptable=1;

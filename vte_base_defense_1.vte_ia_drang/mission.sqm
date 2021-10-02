@@ -124,7 +124,7 @@ class Mission
 			class Attributes
 			{
 				text="opfor lose";
-				onActivation="PMC_objective1 setTaskState ""succeeded""; PMC_objective_opfor1 setTaskState ""failed""; mcomplete = true; publicVariable ""mcomplete"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective2.sqf"";";
 				sizeA=500;
 				sizeB=500;
 				timeout[]={0,3,5};
@@ -143,7 +143,7 @@ class Mission
 			class Attributes
 			{
 				text="blufor lose";
-				onActivation="PMC_objective1 objStatus ""FAILED""; PMC_objective_opfor1 setTaskState ""succeeded""; mcomplete = true; publicVariable ""mcomplete"";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective1.sqf"";";
 				sizeA=500;
 				sizeB=500;
 				timeout[]={0,3,5};

@@ -169,7 +169,7 @@ class Mission
 			class Attributes
 			{
 				text="opfor lose";
-				onActivation="""1"" objStatus ""DONE""; ""2"" objStatus ""FAILED""; PMC_mcomplete = true;";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective1.sqf"";";
 				sizeA=1000;
 				sizeB=1000;
 				timeout[]={3,0,5};
@@ -189,7 +189,7 @@ class Mission
 			class Attributes
 			{
 				text="blufor lose";
-				onActivation="""1"" objStatus ""FAILED""; ""2"" objStatus ""DONE""; PMC_mcomplete = true;";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective2.sqf"";";
 				sizeA=2000;
 				sizeB=2000;
 				timeout[]={3,0,5};

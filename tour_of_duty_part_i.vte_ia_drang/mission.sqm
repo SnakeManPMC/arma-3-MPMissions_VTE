@@ -385,7 +385,7 @@ class Mission
 			{
 				text="OBJ0";
 				condition="!(alive pod1) AND !(alive pod2) AND !(alive pod3) AND !(alive pod4);";
-				onActivation="""0"" objStatus ""DONE""; obj0_done=true; ""obj1_marker"" setmarkersize[0,0]; tskDestroyMortars setTaskState ""SUCCEEDED""; HQ sideChat ""Mortar positions destroyed."";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective0.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				interuptable=1;
@@ -402,7 +402,7 @@ class Mission
 			{
 				text="OBJ1";
 				condition="!(alive aa1) AND !(alive aa2) AND !(alive aa3);";
-				onActivation="""1"" objStatus ""DONE""; obj1_done=true; ""obj2_marker"" setmarkersize[0,0]; tskDestroyAa setTaskState ""SUCCEEDED""; HQ sideChat ""AA guns destroyed."";";
+				onActivation="0 = [] execVM ""PMC\PMC_Objective1.sqf"";";
 				sizeA=0;
 				sizeB=0;
 				interuptable=1;
