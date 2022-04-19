@@ -3,15 +3,15 @@ private
 	"_targetpoint",
 	"_triggerArea",
 	"_centerPos",
-	"_mapSize"
+	"_worldSize"
 ];
 
-_mapSize = _this select 0;
-_centerPos = _mapSize / 2;
+_worldSize = _this select 0;
+_centerPos = _worldSize / 2;
 
-// center of the map
+// center of the terrain
 _targetpoint = [_centerPos, _centerPos, 0];
-_triggerArea = _mapSize;
+_triggerArea = _worldSize;
 
 // BLUFOR
 pmc_blufor_list = createTrigger ["EmptyDetector", _targetpoint];
