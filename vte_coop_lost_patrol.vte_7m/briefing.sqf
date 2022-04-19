@@ -30,7 +30,7 @@ switch (side player) do
 			"Diary",
 			[
 				"ORDERS",
-				"Search and Destroy the enemy ammo shipment.  CODENAME: <marker name='ied1'>CO TOO</marker><br/>Destroy the propaganda broadcasting station. CODNAME: <marker name='com1'>NAM QUI</marker><br/>Disable the enemy air defence units.  CODNAME: <marker name='aaaa'>NAPALM</marker><br/>Re-capture our base at <marker name='e_base'>Tri Ton</marker>.<br/>Assasinate the <marker name='officer'>enemy officer</marker> (YELLOW MARKER: Patrol route).<br/>Recover the US flag from the <marker name='emb'>US Base</marker> at Tri Ton and return it to <marker name='HQ'>HQ</marker>.<br/>Recover the US flag from the <marker name='emb2'>US Base</marker> at An Binh and return it to <marker name='HQ'>HQ</marker>."
+				"Search and Destroy the enemy ammo shipment.  CODENAME: <marker name='ied1'>CO TOO</marker><br/>Destroy the propaganda broadcasting station. CODNAME: <marker name='com1'>NAM QUI</marker><br/>Disable the enemy air defense units.  CODNAME: <marker name='aaaa'>NAPALM</marker><br/>Re-capture our base at <marker name='e_base'>Tri Ton</marker>.<br/>Assasinate the <marker name='officer'>enemy officer</marker> (YELLOW MARKER: Patrol route).<br/>Recover the US flag from the <marker name='emb'>US Base</marker> at Tri Ton and return it to <marker name='HQ'>HQ</marker>.<br/>Recover the US flag from the <marker name='emb2'>US Base</marker> at An Binh and return it to <marker name='HQ'>HQ</marker>."
 			]
 		];
 

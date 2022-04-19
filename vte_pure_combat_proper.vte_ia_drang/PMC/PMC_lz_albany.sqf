@@ -22,7 +22,7 @@ _vcl = "VTE_ch47ca" createVehicle _hq;
 (units _grp select 0) moveInDriver _vcl;
 [_vcl, _grp] execVM "PMC\PMC_create_crew.sqf";
 
-// fly fast, do not engage anyone except on self defence.
+// fly fast, do not engage anyone except on self defense.
 _grp setSpeedMode "FULL";
 _grp setBehaviour "AWARE";
 _grp setCombatMode "GREEN";

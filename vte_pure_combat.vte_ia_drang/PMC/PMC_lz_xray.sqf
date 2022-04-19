@@ -39,7 +39,7 @@ _vcl = "VTE_ch47ca" createVehicle _hq;
 (units _grp select 1) moveinTurret [_vcl, [0]];
 (units _grp select 2) moveinTurret [_vcl, [1]];
 
-// fly fast, do not engage anyone except on self defence.
+// fly fast, do not engage anyone except on self defense.
 _grp setSpeedMode "FULL";
 _grp setBehaviour "AWARE";
 _grp setCombatMode "GREEN";

@@ -30,7 +30,7 @@ switch (side player) do
 			"Diary",
 			[
 				"ORDERS",
-				"PRIMARY OBJ: Seek and destroy the enemy ammo supplies at the <marker name='ied1'>VC Camp</marker>.<br/>SECONDARY OBJ: Search for intel about the location of the enemy air base.<br/>PRIMARY OBJ: Destroy the enemy <marker name='com1'>air-field</marker> assets and communitation equipment.<br/>PRIMARY OBJ: Disable the enemy air defence units along the river bank.  CODNAME: <marker name='aaaa'>4REDCIRCLES</marker><br/>PRIMARY OBJ: Recover the US flag at <marker name='emb'>Leghorn</marker> then return it to <marker name='HQ'>HQ </marker>.<br/>SECONDARY OBJ: Search the base for intel about the location of a nearby enemy camp."
+				"PRIMARY OBJ: Seek and destroy the enemy ammo supplies at the <marker name='ied1'>VC Camp</marker>.<br/>SECONDARY OBJ: Search for intel about the location of the enemy air base.<br/>PRIMARY OBJ: Destroy the enemy <marker name='com1'>air-field</marker> assets and communitation equipment.<br/>PRIMARY OBJ: Disable the enemy air defense units along the river bank.  CODNAME: <marker name='aaaa'>4REDCIRCLES</marker><br/>PRIMARY OBJ: Recover the US flag at <marker name='emb'>Leghorn</marker> then return it to <marker name='HQ'>HQ </marker>.<br/>SECONDARY OBJ: Search the base for intel about the location of a nearby enemy camp."
 			]
 		];
 
